@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import NavBar from './components/NavBar.jsx';
 import Chat from './components/Chat.jsx'
 import axios from 'axios';
 
@@ -15,10 +16,13 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Chat />
+          <NavBar />
+          <Chat />
       </div>
     );
   }
 }
 
 export default App;
+
+
