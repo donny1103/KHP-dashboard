@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import CharBar from './ChatBar.jsx';
+import ChatBar from './ChatBar.jsx';
 import Messages from './Messages.jsx';
 import './Chat.css'
 class Chat extends Component {
@@ -12,7 +12,7 @@ class Chat extends Component {
     return (
       <div className='chat'>
         <Messages Messages={this.state.messages}/>
-        <CharBar />
+        <ChatBar />
       </div>
     );
   };

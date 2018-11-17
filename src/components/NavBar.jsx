@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { withStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
 
 function NavBar(props) {
 
@@ -27,31 +29,27 @@ function NavBar(props) {
 
 
     return (
-      <div>
-        <nav className="navbar">
+      <div className="navbar">
+        <nav>
           <div className="counsellor-profile">
-              <img src="./img/profile_img.png" className="profile_img" />
+              <img src="./img/profile_img.png" className="profile-img" />
           </div>
-          <div className="high-priority">
-              <h3 className="priority-tab">
-                  Very High Priority
-              </h3>
-            </div>
-          <div className="high-priority">
-              <h3 className="priority-tab">
-                  High Priority
-              </h3>
-          </div>
-          <div className="medium-priority">
-              <h3 className="priority-tab">
-                  Medium Priority
-              </h3>
-          </div>
-          <div className="medium-priority">
-              <h3 className="priority-tab">
-                  Low Priority
-              </h3>
-          </div>
+
+            <Button variant="contained" className="nav-button immediate-priority">
+              Immediate Priority
+            </Button>
+
+            <Button variant="contained" className="nav-button high-priority">
+              High Priority
+            </Button>
+
+            <Button variant="contained" className="nav-button medium-priority">
+              Medium Priority
+            </Button>
+
+            <Button variant="contained" className="nav-button low-priority">
+              Low Priority
+            </Button>
 
         </nav>
       </div>

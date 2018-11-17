@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import NavBar from './components/NavBar.jsx';
+import Queue from './components/Queue.jsx';
 import Chat from './components/Chat.jsx'
 import axios from 'axios';
 
@@ -29,6 +30,7 @@ class App extends Component {
     return (
       <div className="App">
           <NavBar />
+          <Queue />
           <Chat />
       </div>
     );
