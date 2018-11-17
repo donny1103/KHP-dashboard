@@ -18,9 +18,32 @@ class App extends Component {
     }
   }
 
-  handlePrioityClick = () => {
+  handlePrioityClick = (val) => {
+    let toQueueData;
+    switch (val){
+      case 1:
+        toQueueData = this.state.immediatePrioity;
+        this.setState({toQueueData:toQueueData})
+        break;
 
+      case 2:
+        toQueueData = this.state.highPrioity;
+        this.setState({toQueueData:toQueueData})
+        break;
+
+      case 3:
+        toQueueData = this.state.mediumPrioity;
+        this.setState({toQueueData:toQueueData})
+        break;
+
+      case 4:
+        toQueueData = this.state.lowPrioity;
+        this.setState({toQueueData:toQueueData})
+        break;         
+    }
+    // this.setState({toQueueData:toQueueData})
   }
+
   componentDidMount () {
     // setInterval(()=>{      
     //   axios.get('http://localhost:9000/pendingusers')
