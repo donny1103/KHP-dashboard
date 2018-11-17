@@ -19,17 +19,17 @@ class App extends Component {
   }
 
   handlePrioityClick = () => {
-    
+
   }
   componentDidMount () {
     // setInterval(()=>{      
-    //   axios.get('http://localhost:9000/pendinguser')
+    //   axios.get('http://localhost:9000/pendingusers')
     //   .then(data=>{
     //     this.setState({queueData:data.data}
     //       )
     // })}, 5000);
 
-    axios.get('http://localhost:9000/pendinguser')
+    axios.get('http://localhost:9000/pendingusers')
     .then(queue=>{
       for(let key in queue.data){
         if (queue.data[key].severity >= 1 && queue.data[key].severity < 25){

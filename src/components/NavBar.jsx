@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-import Badge from '@material-ui/core/Badge';
 
 function NavBar(props) {
 
@@ -31,33 +30,52 @@ function NavBar(props) {
 
     return (
       <div className="navbar">
+        <nav>
           <div className="counsellor-profile">
+<<<<<<< HEAD
+              <img src="./img/profile_img.png" className="profile_img" />
+          </div>
+          <div className="high-priority">
+              <h3 className="priority-tab">
+                  Very High Priority
+              </h3>
+            </div>
+          <div className="high-priority">
+              <h3 className="priority-tab">
+                  High Priority
+              </h3>
+          </div>
+          <div className="medium-priority">
+              <h3 className="priority-tab">
+                  Medium Priority
+              </h3>
+          </div>
+          <div className="medium-priority">
+              <h3 className="priority-tab">
+                  Low Priority
+              </h3>
+=======
               <img src="./img/profile_img.png" className="profile-img" />
+>>>>>>> fde7a7d76bf6d3380b06679c14a37a9516d5d343
           </div>
 
-            <Badge color="primary" badgeContent={4} className="queue-badge">
-              <Button variant="contained" className="nav-button immediate-priority" style={{marginBottom: "1.5rem", backgroundColor: "#D23827FF"}}>
-                Immediate Priority
-              </Button>
-            </Badge>
+            <Button variant="contained" className="nav-button immediate-priority">
+              Immediate Priority
+            </Button>
 
-            <Badge color="primary" badgeContent={4} className="queue-badge">
-              <Button variant="contained" className="nav-button high-priority" style={{marginBottom: "1.5rem", backgroundColor: "#D37B2CFF"}}>
-                High Priority
-              </Button>
-            </Badge>
+            <Button variant="contained" className="nav-button high-priority">
+              High Priority
+            </Button>
 
-            <Badge color="primary" badgeContent={4} className="queue-badge">
-              <Button variant="contained" className="nav-button medium-priority" style={{marginBottom: "1.5rem", backgroundColor: "#CBA745FF"}}>
-                Medium Priority
-              </Button>
-            </Badge>
+            <Button variant="contained" className="nav-button medium-priority">
+              Medium Priority
+            </Button>
 
-            <Badge color="primary" badgeContent={4} className="queue-badge">
-              <Button variant="contained" className="nav-button low-priority" style={{backgroundColor: "#55AF39FF"}}>
-                Low Priority
-              </Button>
-            </Badge>
+            <Button variant="contained" className="nav-button low-priority">
+              Low Priority
+            </Button>
+
+        </nav>
       </div>
 
     );
