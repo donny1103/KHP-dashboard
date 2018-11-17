@@ -1,75 +1,61 @@
 * {
-  font-family: Roboto;
+ font-family: Roboto;
 }
 
-
-html {
-    // This defines what 1rem is
-    font-size: 62.5%;
-}
 
 #root {
-    display: block;
+   display: block;
 }
 
 .navbar {
-  float: left;
-  display: inline-block;
-  width: 18%;
-  height: 98vh;
-  /*align-items: center;*/
+ float: left;
+ display: inline-block;
+ width: 18%;
+ height: 98vh;
+ /*align-items: center;*/
 }
 
 .profile-img {
-  width: 85%;
-  margin-top: 2rem;
-  margin-bottom: 3rem;
-  margin-left: auto;
-  margin-right: auto;
+ width: 85%;
+ margin-top: 2rem;
+ margin-bottom: 3rem;
+ margin-left: auto;
+ margin-right: auto;
 }
 
 .nav-button {
-  width: 150%;
-  background-color: red;
-  padding: .1rem 2rem;
-  border-radius: 10rem;
-  margin-bottom: 1.5rem;
-  margin-right: 100%;
+ width: 96.5%;
 }
 
-.nav-text {
-  text-transform: uppercase;
-  text-decoration: none;
-  /*width: 10rem;*/
-  font-size: 1rem;
+.queue-badge {
+  float: right;
 }
 
 .queue {
-  float: left;
-  width: 25%;
-  display: inline-block;
-  height: 98vh;
-  background-color: #EEE;
+ float: left;
+ width: 25%;
+ display: inline-block;
+ height: 98vh;
+ background-color: #EEE;
 }
 
 .chat {
-  float: left;
-  width: 55%;
-  display: inline-block;
-  height: 98vh;
+ float: left;
+ width: 55%;
+ display: inline-block;
+ height: 98vh;
 }
 
 .chat-input {
-  position: fixed;
-  width: 100%;
-  bottom: 2%;
+ position: fixed;
+ width: 100%;
+ bottom: 2%;
 }
 
 .messages {
-  padding: 3%;
+ padding: 3%;
 }
 
 .message-bubbles {
-  background-color: #eee;
+ background-color: #eee;
 }
-
