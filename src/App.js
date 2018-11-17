@@ -42,27 +42,51 @@ class App extends Component {
     //     this.setState({queueData:data.data}
     //       )
     // })}, 5000);
+    this.socket = new WebSocket('ws://localhost:3001');
+    this.socket.onmessage = (data) => {
 
-    axios.get('http://localhost:9000/pendingusers')
-    .then(queue=>{
-      for(let key in queue.data){
-        if (queue.data[key].severity >= 1 && queue.data[key].severity < 25){
-          this.state.lowPrioity.push({...queue.data[key], id:key})
+      const parsedData = JSON.parse(data.data);
+      if (parsedData.queue){
+        let {queue} = parsedData;
+        for(let key in queue){
+          if (queue[key].severity >= 1 && queue[key].severity < 25){
+            this.state.lowPrioity.push({...queue[key], id:key})
+          }
+          if (queue[key].severity >= 25 && queue[key].severity < 50){
+            this.state.mediumPrioity.push({...queue[key], id:key})
+          }
+          if (queue[key].severity >= 50 && queue[key].severity < 75){
+            this.state.highPrioity.push({...queue[key], id:key})
+          }
+          if (queue[key].severity >= 75 && queue[key].severity <= 100){
+            this.state.immediatePrioity.push({...queue[key], id:key})
+          }
         }
-        if (queue.data[key].severity >= 25 && queue.data[key].severity < 50){
-          this.state.mediumPrioity.push({...queue.data[key], id:key})
-        }
-        if (queue.data[key].severity >= 50 && queue.data[key].severity < 75){
-          this.state.highPrioity.push({...queue.data[key], id:key})
-        }
-        if (queue.data[key].severity >= 75 && queue.data[key].severity <= 100){
-          this.state.immediatePrioity.push({...queue.data[key], id:key})
-        }
+        this.setState({queueData:queue.data});
+        let toQueueData=this.state.immediatePrioity;
+        this.setState({toQueueData:toQueueData});
       }
-      this.setState({queueData:queue.data});
-      let toQueueData=this.state.immediatePrioity;
-      this.setState({toQueueData:toQueueData});
-    })
+    }
+    // axios.get('http://localhost:9000/pendingusers')
+    // .then(queue=>{
+    //   for(let key in queue.data){
+    //     if (queue.data[key].severity >= 1 && queue.data[key].severity < 25){
+    //       this.state.lowPrioity.push({...queue.data[key], id:key})
+    //     }
+    //     if (queue.data[key].severity >= 25 && queue.data[key].severity < 50){
+    //       this.state.mediumPrioity.push({...queue.data[key], id:key})
+    //     }
+    //     if (queue.data[key].severity >= 50 && queue.data[key].severity < 75){
+    //       this.state.highPrioity.push({...queue.data[key], id:key})
+    //     }
+    //     if (queue.data[key].severity >= 75 && queue.data[key].severity <= 100){
+    //       this.state.immediatePrioity.push({...queue.data[key], id:key})
+    //     }
+    //   }
+    //   this.setState({queueData:queue.data});
+    //   let toQueueData=this.state.immediatePrioity;
+    //   this.setState({toQueueData:toQueueData});
+    // })
   }
 
   render() {
