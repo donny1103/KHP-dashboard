@@ -32,31 +32,7 @@ function NavBar(props) {
       <div className="navbar">
         <nav>
           <div className="counsellor-profile">
-<<<<<<< HEAD
-              <img src="./img/profile_img.png" className="profile_img" />
-          </div>
-          <div className="high-priority">
-              <h3 className="priority-tab">
-                  Very High Priority
-              </h3>
-            </div>
-          <div className="high-priority">
-              <h3 className="priority-tab">
-                  High Priority
-              </h3>
-          </div>
-          <div className="medium-priority">
-              <h3 className="priority-tab">
-                  Medium Priority
-              </h3>
-          </div>
-          <div className="medium-priority">
-              <h3 className="priority-tab">
-                  Low Priority
-              </h3>
-=======
               <img src="./img/profile_img.png" className="profile-img" />
->>>>>>> fde7a7d76bf6d3380b06679c14a37a9516d5d343
           </div>
 
             <Button variant="contained" className="nav-button immediate-priority">
