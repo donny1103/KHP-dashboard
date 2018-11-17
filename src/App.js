@@ -14,7 +14,8 @@ class App extends Component {
       highPrioity:[],
       mediumPrioity:[],
       lowPrioity:[],
-      toQueueData:''
+      toQueueData:'',
+      isPersonClick:false
     }
   }
 
