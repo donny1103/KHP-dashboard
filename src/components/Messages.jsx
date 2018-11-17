@@ -3,14 +3,14 @@ import React from 'react';
 const Messages = (props) => {
 
   return (
-    <div>
+    <div className="messages">
       {
         props.Messages.map(message => (
-          <p> {message} </p>
+          <p className="message-bubbles"> {message} </p>
         ))
       }
     </div>
-  )  
+  )
 }
 
 export default Messages;

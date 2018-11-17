@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
+import Badge from '@material-ui/core/Badge';
 
 function NavBar(props) {
 
@@ -30,28 +31,33 @@ function NavBar(props) {
 
     return (
       <div className="navbar">
-        <nav>
           <div className="counsellor-profile">
               <img src="./img/profile_img.png" className="profile-img" />
           </div>
 
-            <Button variant="contained" className="nav-button immediate-priority">
-              Immediate Priority
-            </Button>
+            <Badge color="primary" badgeContent={4} className="queue-badge">
+              <Button variant="contained" className="nav-button immediate-priority" style={{marginBottom: "1.5rem", backgroundColor: "#D23827FF"}}>
+                Immediate Priority
+              </Button>
+            </Badge>
 
-            <Button variant="contained" className="nav-button high-priority">
-              High Priority
-            </Button>
+            <Badge color="primary" badgeContent={4} className="queue-badge">
+              <Button variant="contained" className="nav-button high-priority" style={{marginBottom: "1.5rem", backgroundColor: "#D37B2CFF"}}>
+                High Priority
+              </Button>
+            </Badge>
 
-            <Button variant="contained" className="nav-button medium-priority">
-              Medium Priority
-            </Button>
+            <Badge color="primary" badgeContent={4} className="queue-badge">
+              <Button variant="contained" className="nav-button medium-priority" style={{marginBottom: "1.5rem", backgroundColor: "#CBA745FF"}}>
+                Medium Priority
+              </Button>
+            </Badge>
 
-            <Button variant="contained" className="nav-button low-priority">
-              Low Priority
-            </Button>
-
-        </nav>
+            <Badge color="primary" badgeContent={4} className="queue-badge">
+              <Button variant="contained" className="nav-button low-priority" style={{backgroundColor: "#55AF39FF"}}>
+                Low Priority
+              </Button>
+            </Badge>
       </div>
 
     );
