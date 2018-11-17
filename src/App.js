@@ -7,10 +7,22 @@ import axios from 'axios';
 class App extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      queueData:''
+    }
   }
 
   componentDidMount () {
+    // setInterval(()=>{      
+    //   axios.get('http://localhost:9000/pendinguser')
+    //   .then(data=>{
+    //     this.setState({queueData:data.data}
+    //       )
+    // })}, 5000);
 
+    axios.get('http://localhost:9000/pendinguser')
+    .then(data=>{
+    this.setState({queueData:data.data})})
   }
 
   render() {

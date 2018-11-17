@@ -30,25 +30,25 @@ function NavBar(props) {
       <div>
         <nav className="navbar">
           <div className="counsellor-profile">
-              <img src="./img/profile_img.png" class="profile_img" />
+              <img src="./img/profile_img.png" className="profile_img" />
           </div>
           <div className="high-priority">
-              <h3 class="priority-tab">
+              <h3 className="priority-tab">
                   Very High Priority
               </h3>
             </div>
           <div className="high-priority">
-              <h3 class="priority-tab">
+              <h3 className="priority-tab">
                   High Priority
               </h3>
           </div>
           <div className="medium-priority">
-              <h3 class="priority-tab">
+              <h3 className="priority-tab">
                   Medium Priority
               </h3>
           </div>
           <div className="medium-priority">
-              <h3 class="priority-tab">
+              <h3 className="priority-tab">
                   Low Priority
               </h3>
           </div>
@@ -57,6 +57,5 @@ function NavBar(props) {
       </div>
 
     );
-
 }
 export default NavBar;
