@@ -4,21 +4,29 @@ html {
 }
 
 #root {
-
     display: block;
 }
 
 .navbar {
   float: left;
   display: inline-block;
-  width: 25%;
+  width: 18%;
   height: 100vh;
+  /*align-items: center;*/
 }
 
-.profile_img {
-  width: 10rem;
+.profile-img {
+  width: 85%;
   margin-top: 2rem;
   margin-bottom: 3rem;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+.nav-button {
+  width: 12rem;
+  margin-bottom: 5rem;
 }
 
 .queue {
@@ -26,11 +34,12 @@ html {
   width: 25%;
   display: inline-block;
   height: 100vh;
+  background-color: grey;
 }
 
 .chat {
   float: left;
-  width: 45%;
+  width: 55%;
   display: inline-block;
   height: 100vh;
 
