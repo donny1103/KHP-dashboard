@@ -9,7 +9,9 @@ const Queue = (props) => {
       {props.Data? props.Data.map(item=>(
         <Card key={item.id} >
           <CardContent>
-            {item.severity}
+            <p>Name: {item.name}</p>
+            <p>Age: {item.age}</p>
+            <p>Severity: {item.severity}</p>
           </CardContent>
         </Card>
       )) : ''}
