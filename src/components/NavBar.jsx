@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Badge from '@material-ui/core/Badge';
 
@@ -35,7 +36,7 @@ function NavBar(props) {
           </div>
 
             <Badge color="primary" badgeContent={4} className="queue-badge">
-              <Button variant="contained" className="nav-button immediate-priority" style={{marginBottom: "1.5rem", backgroundColor: "#D23827FF"}}>
+              <Button variant="contained" className="nav-button immediate-priority" style={{marginBottom: "1.5rem"}}>
                 Immediate Priority
               </Button>
             </Badge>
@@ -60,5 +61,6 @@ function NavBar(props) {
       </div>
 
     );
+
 }
 export default NavBar;

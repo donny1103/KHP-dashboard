@@ -29,7 +29,19 @@ html {
 }
 
 .nav-button {
-  width: 13rem;
+  width: 150%;
+  background-color: red;
+  padding: .1rem 2rem;
+  border-radius: 10rem;
+  margin-bottom: 1.5rem;
+  margin-right: 100%;
+}
+
+.nav-text {
+  text-transform: uppercase;
+  text-decoration: none;
+  /*width: 10rem;*/
+  font-size: 1rem;
 }
 
 .queue {
