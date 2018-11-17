@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card } from 'antd';
+import { Card, Button} from 'antd';
 
 const Queue = (props) => {
 
@@ -8,12 +8,10 @@ const Queue = (props) => {
   return (
     <div className="queue">
       {sortedData ? sortedData.map(item=>(
-        <Card key={item.id} className="card">
-            <img src="./img/profile_img.png" className="profile-img" />
-            <p>Name: {item.name}</p>
-            <p>Age: {item.age}</p>
-            <p>Severity: {item.severity}</p>
-        </Card>
+        <Button key={item.id} className="card">
+            <img src="./img/boy.png" className="card-icon" /><span>{item.name}, {item.age} yrs old</span>
+            <p className="card-content">Severity: {item.severity}</p>
+        </Button>
       )) : ''}
     </div>
   )
