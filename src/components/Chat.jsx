@@ -3,12 +3,15 @@ import CharBar from './ChatBar.jsx';
 import Messages from './Messages.jsx';
 import './Chat.css'
 class Chat extends Component {
-  
+  state = {
+    messages:['Hi, my name is AAA','How are you AAA?']
+  }
+
   render () {
 
     return (
       <div className='chat'>
-        <Messages Messages={this.props.Messages}/>
+        <Messages Messages={this.state.messages}/>
         <CharBar />
       </div>
     );
