@@ -1,2 +1,37 @@
+html {
+    // This defines what 1rem is
+    font-size: 62.5%;
+}
 
+#root {
 
+    display: block;
+}
+
+.navbar {
+  float: left;
+  display: inline-block;
+  width: 25%;
+  height: 100vh;
+}
+
+.profile_img {
+  width: 10rem;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+}
+
+.queue {
+  float: left;
+  width: 25%;
+  display: inline-block;
+  height: 100vh;
+}
+
+.chat {
+  float: left;
+  width: 45%;
+  display: inline-block;
+  height: 100vh;
+
+}

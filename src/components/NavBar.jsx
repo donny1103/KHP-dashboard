@@ -27,8 +27,8 @@ function NavBar(props) {
 
 
     return (
-      <div>
-        <nav className="navbar">
+      <div className="navbar">
+        <nav>
           <div className="counsellor-profile">
               <img src="./img/profile_img.png" class="profile_img" />
           </div>
