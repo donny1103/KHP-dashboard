@@ -12,7 +12,7 @@
  display: inline-block;
  width: 18%;
  height: 98vh;
- /*align-items: center;*/
+ margin-left: .5rem;
 }
 
 .profile-img {
@@ -30,7 +30,7 @@
 .queue-badge {
   float: right;
   bottom: 1.2rem;
-  left: 1.5rem;
+  left: 1.3rem;
   color: green;
 }
 
@@ -40,6 +40,18 @@
  display: inline-block;
  height: 98vh;
  background-color: #EEE;
+}
+
+.card {
+  margin: 2%;
+}
+
+.card-content {
+  margin: 2%;
+}
+
+.card-icon {
+  width: 1.5rem;
 }
 
 .chat {

@@ -68,7 +68,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-          <NavBar onClick={this.handlePrioityClick}/>
+          <NavBar Data={this.state} onClick={this.handlePrioityClick}/>
           <Queue 
             Data={this.state.toQueueData} 
           />
