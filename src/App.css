@@ -44,14 +44,24 @@
 
 .card {
   margin: 2%;
+  width: 96.5%;
+  height: 3.5rem !important;
+  padding-top: .4rem !important;
+  text-align: left !important;
+  padding-left: 3rem !important;
+}
+
+.ant-card-body {
+  padding: .8rem !important;
 }
 
 .card-content {
-  margin: 2%;
+  padding-left: 2rem !important;
 }
 
 .card-icon {
   width: 1.5rem;
+  margin-right: .5rem;
 }
 
 .chat {
