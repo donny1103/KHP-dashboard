@@ -10,7 +10,9 @@ const Messages = (props) => {
       <div>
         <span className="message-bubbles-right"> Hi {props.clientName}, how are you?</span><br />
       </div>
-
+      {props.Messages && props.Messages.map(message=>(
+        <div><p className="message-bubbles-right">{message}</p><br/></div>
+      ))}
     </div>) : '';
   return (
     disDiv

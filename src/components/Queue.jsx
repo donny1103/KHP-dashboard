@@ -36,10 +36,12 @@ const Queue = (props) => {
           } key={item.id} style={customPanelStyle}>
 
 
+
             {item.favoriteColor && <p><b className="card-titles">Favorite color:</b> {item.favoriteColor}</p>}
             {item.sadValue && <p><b className="card-titles">Sad</b> <Slider defaultValue={item.sadValue} min={0} max={7} marks={{0:'1', 7: '7'}} disabled={true} className="slider"/> </p>}
             {item.scaredValue && <p><b className="card-titles">Scared</b> <Slider defaultValue={item.scaredValue} min={0} max={7} marks={{0:'1', 7: '7'}} disabled={true} className="slider"/> </p> }
               {item.careAbout && <p><b className="card-titles">Care About</b></p>}
+
               <ul>
                 {item.careAbout && item.careAbout.map(person=>(
                   <li>{person}</li>
