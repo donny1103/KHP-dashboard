@@ -43,12 +43,12 @@
 }
 
 .card {
-  margin: 2%;
+  margin: 2% !important;
   width: 96.5%;
-  height: 3.5rem !important;
-  padding-top: .4rem !important;
-  text-align: left !important;
-  padding-left: .75rem !important;
+  /*height: 3.5rem !important;*/
+  /*padding-top: .4rem !important;*/
+  /*text-align: left !important;*/
+  /*padding-left: .75rem !important;*/
 }
 
 .ant-card-body {
@@ -63,6 +63,7 @@
 
 .wait-time {
   float: right;
+  margin-right: 1rem;
 }
 
 .chat {

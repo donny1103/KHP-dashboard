@@ -12,7 +12,7 @@ const text = `
 const customPanelStyle = {
   background: '#fff',
   borderRadius: 4,
-  marginBottom: 24,
+  marginBottom: 12,
   border: 0,
   overflow: 'hidden',
 };
@@ -32,7 +32,7 @@ const Queue = (props) => {
         //     <span className="wait-time">02:15</span>
         // </Button>
 
-        <Collapse bordered={false} defaultActiveKey={['1']}>
+        <Collapse bordered={false} defaultActiveKey={['1']} className="card">
           <Panel header={
             <div>
               <img src="./img/boy.png" className="card-icon" /><span>{item.name}, {item.age} yrs old</span><br />
