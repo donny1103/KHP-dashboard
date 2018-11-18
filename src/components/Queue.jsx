@@ -26,7 +26,8 @@ const Queue = (props) => {
         <Collapse bordered={false} defaultActiveKey={['1']} className="card">
           <Panel header={
             <div>
-              {item.gender ? <img src={`./img/${item.gender}.png`} className="card-icon" /> : ''}
+              {item.gender ? <img src={`./img/${item.gender}.png`} className="card-icon" /> : 
+                <img src={`./img/question.png`} className="card-icon" />}
               <span>{item.name}, {item.age} yrs old</span><br />
               <span>Severity: {item.severity}</span>
               <span className="wait-time">{Math.round((Date.parse(new Date()) - Date.parse(item.time))/60000)} mins ago</span>
