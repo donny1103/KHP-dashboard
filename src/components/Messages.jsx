@@ -10,8 +10,6 @@ const Messages = (props) => {
       <div>
         <span className="message-bubbles-right"> Hi {props.clientName}, how are you?</span>
       </div>
-
-
     </div>) : '';
   return (
     disDiv
@@ -19,12 +17,3 @@ const Messages = (props) => {
 }
 
 export default Messages;
-
-
- // {
- //        props.Messages.map(message => (
- //          <div>
- //            <p className="message-bubbles"> {message} </p>
- //          </div>
- //        ))
- //      }
