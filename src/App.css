@@ -48,20 +48,21 @@
   height: 3.5rem !important;
   padding-top: .4rem !important;
   text-align: left !important;
-  padding-left: 3rem !important;
+  padding-left: .75rem !important;
 }
 
 .ant-card-body {
   padding: .8rem !important;
 }
 
-.card-content {
-  padding-left: 2rem !important;
+.card-icon {
+  width: 2.4rem;
+  margin-right: .5rem;
+  float: left;
 }
 
-.card-icon {
-  width: 1.5rem;
-  margin-right: .5rem;
+.wait-time {
+  float: right;
 }
 
 .chat {
@@ -83,4 +84,7 @@
 
 .message-bubbles {
  background-color: #eee;
+ padding: .5rem;
+ border-radius: .75rem;
+ width: 13rem;
 }

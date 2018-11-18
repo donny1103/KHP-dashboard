@@ -6,7 +6,9 @@ const Messages = (props) => {
     <div className="messages">
       {
         props.Messages.map(message => (
-          <p className="message-bubbles"> {message} </p>
+          <div>
+            <p className="message-bubbles"> {message} </p>
+          </div>
         ))
       }
     </div>
