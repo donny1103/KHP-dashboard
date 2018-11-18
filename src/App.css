@@ -67,6 +67,10 @@
  width: 96.5%;
 }
 
+.nav-button:hover {
+  color: white !important;
+}
+
 .queue-badge {
   float: right;
   bottom: 1.2rem;
