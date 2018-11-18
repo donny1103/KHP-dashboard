@@ -102,7 +102,7 @@ class App extends Component {
             Data={this.state.toQueueData}
             clientName={this.handleChatClick}
           />
-          <Chat clientName={this.handleChatClick}/>
+          <Chat clientName={this.state.clientName}/>
       </div>
     );
   }
