@@ -74,6 +74,10 @@
   color: green;
 }
 
+/*.text-font {
+  font-family: HelveticaRoundedLTStd-Bd;
+}*/
+
 .queue {
  float: left;
  width: 25%;
@@ -101,6 +105,11 @@
   /*padding-top: .4rem !important;*/
   /*text-align: left !important;*/
   /*padding-left: .75rem !important;*/
+}
+
+.card-titles {
+  font-family: 'HelveticaRoundedLTStd-Bd';
+  color: #2e5871;
 }
 
 .ant-card-body {
