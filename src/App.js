@@ -14,7 +14,7 @@ class App extends Component {
       highPrioity:[],
       mediumPrioity:[],
       lowPrioity:[],
-      toQueueData:'',
+      toQueueData:'immediatePrioity',
       clientName: ''
     }
   }
@@ -110,15 +110,10 @@ class App extends Component {
     return (
       <div className="App">
           <NavBar Data={this.state} onClick={this.handlePrioityClick}/>
-<<<<<<< HEAD
           <Queue 
             Data={this.state}
             showDataKey={this.state.toQueueData} 
-=======
-          <Queue
-            Data={this.state.toQueueData}
             clientName={this.handleChatClick}
->>>>>>> cf2a4bbd21075c2d24264e481627f7102c1fd18b
           />
           <Chat clientName={this.state.clientName}/>
       </div>
