@@ -14,7 +14,7 @@ class App extends Component {
       highPrioity:[],
       mediumPrioity:[],
       lowPrioity:[],
-      toQueueData:'',
+      toQueueData:'immediatePrioity',
       isPersonClick:false
     }
   }
@@ -22,16 +22,16 @@ class App extends Component {
   handlePrioityClick = (val) => {
     let toQueueData;
     if (val === '1'){
-      toQueueData = this.state.immediatePrioity
+      toQueueData = 'immediatePrioity';
     }
     if (val === '2'){
-      toQueueData = this.state.highPrioity
+      toQueueData = 'highPrioity';
     }
     if (val === '3'){
-      toQueueData = this.state.mediumPrioity
+      toQueueData = 'mediumPrioity';
     }
     if (val === '4'){
-      toQueueData = this.state.lowPrioity
+      toQueueData = 'lowPrioity';
     }
     this.setState({toQueueData:toQueueData})
   }
@@ -49,23 +49,35 @@ class App extends Component {
       const parsedData = JSON.parse(data.data);
       if (parsedData.queue){
         let {queue} = parsedData;
+        let lowPrioityArr = [];
+        let mediumPrioityArr = [];
+        let highPrioityArr = [];
+        let immediatePrioityArr = [];
+
         for(let key in queue){
           if (queue[key].severity >= 1 && queue[key].severity < 25){
-            this.state.lowPrioity.push({...queue[key], id:key})
+            lowPrioityArr.push({...queue[key], id:key})
           }
           if (queue[key].severity >= 25 && queue[key].severity < 50){
-            this.state.mediumPrioity.push({...queue[key], id:key})
+            mediumPrioityArr.push({...queue[key], id:key})
           }
           if (queue[key].severity >= 50 && queue[key].severity < 75){
-            this.state.highPrioity.push({...queue[key], id:key})
+            highPrioityArr.push({...queue[key], id:key})
           }
           if (queue[key].severity >= 75 && queue[key].severity <= 100){
-            this.state.immediatePrioity.push({...queue[key], id:key})
+            immediatePrioityArr.push({...queue[key], id:key})
           }
         }
+        this.setState({
+          immediatePrioity:immediatePrioityArr,
+          highPrioity:highPrioityArr,
+          mediumPrioity:mediumPrioityArr,
+          lowPrioity:lowPrioityArr
+        })
+
         this.setState({queueData:queue.data});
-        let toQueueData=this.state.immediatePrioity;
-        this.setState({toQueueData:toQueueData});
+        // let toQueueData=this.state.immediatePrioity;
+        // this.setState({toQueueData:toQueueData});
       }
     }
     // axios.get('http://localhost:9000/pendingusers')
@@ -95,7 +107,8 @@ class App extends Component {
       <div className="App">
           <NavBar Data={this.state} onClick={this.handlePrioityClick}/>
           <Queue 
-            Data={this.state.toQueueData} 
+            Data={this.state}
+            showDataKey={this.state.toQueueData} 
           />
           <Chat />
       </div>

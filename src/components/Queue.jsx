@@ -21,7 +21,7 @@ const customPanelStyle = {
 
 const Queue = (props) => {
 
-  let sortedData = props.Data? props.Data.sort((a,b)=>(b.severity-a.severity)) : '';
+  let sortedData = props.Data[props.showDataKey].sort((a,b)=>(b.severity-a.severity)) ;
 
   return (
     <div className="queue">
