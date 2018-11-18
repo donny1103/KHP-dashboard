@@ -15,11 +15,12 @@ class NavBar extends Component {
  render() {
    return (
      <div className="navbar">
-      <div>
+      <div className="logo">
            <img src="./img/khp.png" className="khp-logo" />
-           <p className="khp-title">Kids Help Phone</p>
-           <p className="khp-title">Counsellor Dashboard</p>
-
+           <div className="khp-titlegroup">
+             <p className="khp-title">Kids Help Phone</p>
+             <p className="khp-title">Counsellor Dashboard</p>
+           </div>
        </div>
        <div className="counsellor-profile">
            <img src="./img/profile_img.png" className="profile-img" />
