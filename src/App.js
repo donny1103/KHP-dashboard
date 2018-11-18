@@ -35,8 +35,10 @@ class App extends Component {
     this.setState({toQueueData:toQueueData})
   }
 
-  handleChatClick = (val) => {
-    this.setState({clientName:val})
+  handleChatClick = (value) => {
+    let parsedVal = JSON.parse(value)
+    this.setState({clientName:parsedVal.clientName})
+    this.socket.send(value);
   }
 
   componentDidMount () {
