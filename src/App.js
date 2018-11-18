@@ -43,7 +43,7 @@ class App extends Component {
 
   componentDidMount () {
 
-    this.socket = new WebSocket('ws://localhost:3001');
+    this.socket = new WebSocket('ws://10.0.78.176:3001');
     this.socket.onmessage = (data) => {
 
       const parsedData = JSON.parse(data.data);
