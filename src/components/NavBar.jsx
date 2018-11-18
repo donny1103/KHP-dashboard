@@ -18,7 +18,11 @@ class NavBar extends Component {
        <div className="counsellor-profile">
            <img src="./img/profile_img.png" className="profile-img" />
        </div>
-
+       <div>
+          <p className="counsellor-name">Logged in as:</p>
+          <p className="counsellor-name">Dan Karres</p>
+          <br />
+       </div>
        <Button className="nav-button immediate-priority" style={{marginBottom: "1.5rem", backgroundColor: "#D23827FF"}} value='1' onClick={this.onClick}>
           Immediate Priority
           <Badge count={this.props.Data.immediatePrioity ? this.props.Data.immediatePrioity.length : 0} className="queue-badge" style={{ backgroundColor: '#0b95c8' }} />

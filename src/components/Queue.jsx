@@ -12,7 +12,7 @@ const text = `
 const customPanelStyle = {
   background: '#fff',
   borderRadius: 4,
-  marginBottom: 12,
+  marginBottom: 10,
   border: 0,
   overflow: 'hidden',
 };
@@ -22,6 +22,11 @@ const customPanelStyle = {
 const Queue = (props) => {
 
   let sortedData = props.Data[props.showDataKey].sort((a,b)=>(b.severity-a.severity)) ;
+
+  let clientName = (e) => {
+    console.log(e.target.value)
+    props.clientName(e.target.value)
+  }
 
   return (
     <div className="queue">
@@ -41,8 +46,8 @@ const Queue = (props) => {
             </div>
           } key={item.id} style={customPanelStyle}>
             <p>Test here</p>
-            <Button type='primary'>Cancel</Button>
-            <Button type='primary'>Chat</Button>
+            <Button type='primary'>End Session</Button>
+            <Button type='primary' className="chat-button" value={item.name} onClick={clientName}>Chat ></Button>
           </Panel>
 
         </Collapse>

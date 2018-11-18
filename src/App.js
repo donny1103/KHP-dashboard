@@ -14,8 +14,8 @@ class App extends Component {
       highPrioity:[],
       mediumPrioity:[],
       lowPrioity:[],
-      toQueueData:'immediatePrioity',
-      isPersonClick:false
+      toQueueData:'',
+      clientName: ''
     }
   }
 
@@ -36,8 +36,12 @@ class App extends Component {
     this.setState({toQueueData:toQueueData})
   }
 
+  handleChatClick = (val) => {
+    this.setState({clientName:val})
+  }
+
   componentDidMount () {
-    // setInterval(()=>{      
+    // setInterval(()=>{
     //   axios.get('http://localhost:9000/pendingusers')
     //   .then(data=>{
     //     this.setState({queueData:data.data}
@@ -106,11 +110,17 @@ class App extends Component {
     return (
       <div className="App">
           <NavBar Data={this.state} onClick={this.handlePrioityClick}/>
+<<<<<<< HEAD
           <Queue 
             Data={this.state}
             showDataKey={this.state.toQueueData} 
+=======
+          <Queue
+            Data={this.state.toQueueData}
+            clientName={this.handleChatClick}
+>>>>>>> cf2a4bbd21075c2d24264e481627f7102c1fd18b
           />
-          <Chat />
+          <Chat clientName={this.state.clientName}/>
       </div>
     );
   }

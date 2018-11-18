@@ -10,7 +10,7 @@ class Chat extends Component {
 
     return (
       <div className='chat'>
-        <Messages Messages={this.state.messages}/>
+        <Messages Messages={this.state.messages} clientName={this.props.clientName}/>
         <ChatBar />
       </div>
     );
