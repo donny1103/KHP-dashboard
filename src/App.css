@@ -1,5 +1,13 @@
+@font-face {
+    font-family: 'HelveticaRoundedLTStd-Bd';
+    src: url('./fonts/HelveticaRoundedLTStd-Bd.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
 * {
  font-family: Roboto;
+
 }
 
 
@@ -15,9 +23,36 @@
  margin-left: .5rem;
 }
 
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.khp-logo {
+  width: 20%;
+  margin-top: .5rem;
+  margin-right: .5rem;
+  margin-bottom: .5rem;
+}
+
+.khp-titlegroup {
+  display: inline-block;
+  padding-top: .5rem;
+}
+
+.khp-title {
+  color: #0b95c8;
+  font-family: HelveticaRoundedLTStd-Bd;
+  left: 2rem;
+  margin: 0;
+  font-size: 1.1rem;
+
+
+}
+
 .profile-img {
  width: 85%;
- margin-top: 2rem;
+ margin-top: 1.5rem;
  margin-bottom: 1rem;
  margin-left: .8rem;
  margin-right: auto;
@@ -85,16 +120,13 @@
 .chat-input {
  position: fixed;
  width: 100%;
- bottom: 2%;
+ bottom: 0%;
+ padding-top: 1.5rem;
+ padding-bottom: 2.5rem;
+ background-color: #0b95c8;
 }
 
-.ant-input {
-  padding: 10px 15px !important;
-}
 
-.ant-button.ant-button-primary {
-  float: right !important;
-}
 
 .messages {
  padding: 3%;
