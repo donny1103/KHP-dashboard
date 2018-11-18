@@ -41,6 +41,8 @@ const Queue = (props) => {
             </div>
           } key={item.id} style={customPanelStyle}>
             <p>Test here</p>
+            <Button type='primary'>Cancel</Button>
+            <Button type='primary'>Chat</Button>
           </Panel>
 
         </Collapse>
