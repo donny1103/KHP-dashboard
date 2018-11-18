@@ -82,6 +82,18 @@
  background-color: #EEE;
 }
 
+.ant-slider-handle {
+  background-color: red !important;
+}
+
+.ant-slider-step {
+  background-color: pink !important;
+}
+
+.ant-slider-dot {
+  background-color: pink !important;
+}
+
 .card {
   margin: 2% !important;
   width: 96%;
@@ -123,10 +135,8 @@
  bottom: 0%;
  padding-top: 1.5rem;
  padding-bottom: 2.5rem;
- background-color: #0b95c8;
+ background-color: #2e5871;
 }
-
-
 
 .messages {
  padding: 3%;

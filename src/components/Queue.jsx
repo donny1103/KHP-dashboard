@@ -1,5 +1,6 @@
 import React from 'react';
 import { Slider, Button, Collapse } from 'antd';
+import { Rate, Icon } from 'antd';
 
 const Panel = Collapse.Panel;
 
@@ -26,16 +27,18 @@ const Queue = (props) => {
         <Collapse bordered={false} defaultActiveKey={['1']} className="card">
           <Panel header={
             <div>
-              {item.gender ? <img src={`./img/${item.gender}.png`} className="card-icon" /> : 
+              {item.gender ? <img src={`./img/${item.gender}.png`} className="card-icon" /> :
                 <img src={`./img/question.png`} className="card-icon" />}
               <span>{item.name}, {item.age} yrs old</span><br />
               <span>Severity: {item.severity}</span>
               <span className="wait-time">{Math.round((Date.parse(new Date()) - Date.parse(item.time))/60000)} mins ago</span>
             </div>
           } key={item.id} style={customPanelStyle}>
+
+
             {item.favoriteColor && <p>favorite color: {item.favoriteColor}</p>}
-            {item.sadValue && <p>Sad <Slider defaultValue={item.sadValue} min={0} max={7} marks={{0:'0', 7: '7'}}/> </p>}
-            {item.scaredValue && <p>Scared <Slider defaultValue={item.scaredValue} min={0} max={7} marks={{0:'0', 7: '7'}}/> </p> }
+            {item.sadValue && <p>Sad <Slider defaultValue={item.sadValue} min={0} max={7} marks={{0:'1', 7: '7'}} disabled={false} className="slider"/> </p>}
+            {item.scaredValue && <p>Scared <Slider defaultValue={item.scaredValue} min={0} max={7} marks={{0:'1', 7: '7'}} disabled={true} className="slider"/> </p> }
               {item.careAbout && <p>Care About</p>}
               <ul>
                 {item.careAbout && item.careAbout.map(person=>(
@@ -52,3 +55,7 @@ const Queue = (props) => {
 };
 
 export default Queue;
+
+
+// <i class="fas fa-ghost"></i>
+// <i class="fas fa-frown"></i>
