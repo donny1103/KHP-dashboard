@@ -37,7 +37,7 @@ const Queue = (props) => {
 
 
             {item.favoriteColor && <p>favorite color: {item.favoriteColor}</p>}
-            {item.sadValue && <p>Sad <Slider defaultValue={item.sadValue} min={0} max={7} marks={{0:'1', 7: '7'}} disabled={false} className="slider"/> </p>}
+            {item.sadValue && <p>Sad <Slider defaultValue={item.sadValue} min={0} max={7} marks={{0:'1', 7: '7'}} disabled={true} className="slider"/> </p>}
             {item.scaredValue && <p>Scared <Slider defaultValue={item.scaredValue} min={0} max={7} marks={{0:'1', 7: '7'}} disabled={true} className="slider"/> </p> }
               {item.careAbout && <p>Care About</p>}
               <ul>
