@@ -1,13 +1,7 @@
 import React from 'react';
-import { Card, Button, Collapse } from 'antd';
+import { Slider, Button, Collapse } from 'antd';
 
 const Panel = Collapse.Panel;
-
-const text = `
-  A dog is a type of domesticated animal.
-  Known for its loyalty and faithfulness,
-  it can be found as a welcome guest in many households across the world.
-`;
 
 const customPanelStyle = {
   background: '#fff',
@@ -32,12 +26,22 @@ const Queue = (props) => {
         <Collapse bordered={false} defaultActiveKey={['1']} className="card">
           <Panel header={
             <div>
-              <img src="./img/boy.png" className="card-icon" /><span>{item.name}, {item.age} yrs old</span><br />
+              {item.gender ? <img src={`./img/${item.gender}.png`} className="card-icon" /> : ''}
+              <span>{item.name}, {item.age} yrs old</span><br />
               <span>Severity: {item.severity}</span>
               <span className="wait-time">{Math.round((Date.parse(new Date()) - Date.parse(item.time))/60000)} mins ago</span>
             </div>
           } key={item.id} style={customPanelStyle}>
-            <p>Test here</p>
+            <p>favorite color: {item.favoriteColor}</p>
+            <p>Sad <Slider defaultValue={item.sadValue} min={0} max={7} marks={{0:'1', 7: '7'}}/> </p>
+            <p>Scared <Slider defaultValue={item.scaredValue} min={0} max={7} marks={{0:'1', 7: '7'}}/> </p>
+            <p>Care About</p>
+            <ul>
+              {item.careAbout && item.careAbout.map(person=>(
+                <li>{person}</li>
+              ))}
+            </ul>
+
             <Button type='primary' >End Session</Button>
             <Button type='primary' className="chat-button" value={item.name} onClick={clientName}>Chat ></Button>
           </Panel>
