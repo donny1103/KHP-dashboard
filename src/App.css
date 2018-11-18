@@ -87,7 +87,11 @@
 }
 
 .ant-slider-step {
-  background-color: #FDC7D4FF !important;
+  background-color: pink !important;
+}
+
+.ant-slider-dot {
+  background-color: pink !important;
 }
 
 .card {

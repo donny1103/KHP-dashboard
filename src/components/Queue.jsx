@@ -34,20 +34,19 @@ const Queue = (props) => {
               <span className="wait-time">{Math.round((Date.parse(new Date()) - Date.parse(item.time))/60000)} mins ago</span>
             </div>
           } key={item.id} style={customPanelStyle}>
-            <p>favorite color: {item.favoriteColor}</p>
-            <p>Sad <Slider defaultValue={item.sadValue} min={0} max={7} marks={{0:'1', 7: '7'}} disabled={true} className="slider"/> </p>
-            <i class="fas fa-ghost"></i>
-            <p>Scared <Slider defaultValue={item.scaredValue} min={0} max={7} marks={{0:'1', 7: '7'}} disabled={true} className="slider"/> </p>
-            <i class="fas fa-frown"></i>
-            <p>Care About</p>
-            <ul>
-              {item.careAbout && item.careAbout.map(person=>(
-                <li>{person}</li>
-              ))}
-            </ul>
 
-            <Button type='primary' style={{backgroundColor: '#0b95c8'}}>End Session</Button>
-            <Button type='primary' className="chat-button" value={item.name} onClick={clientName} style={{backgroundColor: '#0b95c8'}}>Chat ></Button>
+
+            {item.favoriteColor && <p>favorite color: {item.favoriteColor}</p>}
+            {item.sadValue && <p>Sad <Slider defaultValue={item.sadValue} min={0} max={7} marks={{0:'1', 7: '7'}} disabled={false} className="slider"/> </p>}
+            {item.scaredValue && <p>Scared <Slider defaultValue={item.scaredValue} min={0} max={7} marks={{0:'1', 7: '7'}} disabled={true} className="slider"/> </p> }
+              {item.careAbout && <p>Care About</p>}
+              <ul>
+                {item.careAbout && item.careAbout.map(person=>(
+                  <li>{person}</li>
+                ))}
+              </ul>
+            <Button type='primary' >End Session</Button>
+            <Button type='primary' className="chat-button" value={JSON.stringify({type: 'startChat',clientName: item.name, id: item.id, counsellorName: 'Dan Karres'})} onClick={clientName}>Chat ></Button>
           </Panel>
         </Collapse>
       ))}
@@ -56,3 +55,7 @@ const Queue = (props) => {
 };
 
 export default Queue;
+
+
+// <i class="fas fa-ghost"></i>
+// <i class="fas fa-frown"></i>
