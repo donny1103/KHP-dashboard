@@ -1,9 +1,17 @@
 # Kids Help Phone Intake Solution
-> Project of Gift the Code Hackathon
-## Dashboard Counsellor
+> A new strategy or method to engage visitors on the website
 
-This repo is a part of a project which was build for KidsHelpPhone Charity, visit the below links for the complete project. 
+By [**Team PoMo**](https://github.com/GTC-POMO)
 
-https://github.com/PostmodernKHP/dashboard
-https://github.com/PostmodernKHP/node-api-server
-https://github.com/JacobMJones/kidsphone
+## Overview
+## Installation
+## Team PoMo Members
+
+* [ **Alfred Law** ](https://github.com/alfred529)
+* [ **Niveditha Kani** ](https://github.com/NivedithaK)
+* [ **Jacob Jones** ](https://github.com/JacobMJones)
+* [ **Raymond Kwan** ](https://github.com/RayKayy)
+* [ **Weidong Li** ](https://github.com/donny1103)
+
+## License
+**[MIT license](https://opensource.org/licenses/MIT)**
