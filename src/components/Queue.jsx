@@ -23,7 +23,7 @@ const Queue = (props) => {
   }
 
   return (
-    <Col className="queue" xs={0} sm={4} md={4} lg={8} xl={8} >
+    <Col className="queue" xs={0} sm={0} md={4} lg={8} xl={8} >
       {sortedData.map(item=>(
         <Collapse bordered={false} defaultActiveKey={['1']} className="card" key={item.id}>
           <Panel header={
