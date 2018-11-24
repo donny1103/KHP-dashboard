@@ -3,6 +3,7 @@ import './App.css';
 import NavBar from './components/NavBar.jsx';
 import Queue from './components/Queue.jsx';
 import Chat from './components/Chat.jsx'
+import { Row } from 'antd';
 
 class App extends Component {
   constructor(props) {
@@ -43,9 +44,8 @@ class App extends Component {
 
   componentDidMount () {
 
-    this.socket = new WebSocket('ws://10.0.78.176:3001');
+    this.socket = new WebSocket('ws://localhost:3001');
     this.socket.onmessage = (data) => {
-
       const parsedData = JSON.parse(data.data);
       if (parsedData.queue){
         let {queue} = parsedData;
@@ -76,15 +76,13 @@ class App extends Component {
         })
 
         this.setState({queueData:queue});
-        // let toQueueData=this.state.immediatePrioity;
-        // this.setState({toQueueData:toQueueData});
       }
     }
   }
 
   render() {
     return (
-      <div className="App">
+      <Row className="App">
           <NavBar Data={this.state} onClick={this.handlePrioityClick}/>
           <Queue 
             Data={this.state}
@@ -92,7 +90,7 @@ class App extends Component {
             clientName={this.handleChatClick}
           />
           <Chat clientName={this.state.clientName}/>
-      </div>
+      </Row>
     );
   }
 }

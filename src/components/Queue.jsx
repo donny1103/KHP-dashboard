@@ -1,6 +1,7 @@
 import React from 'react';
 import { Slider, Button, Collapse } from 'antd';
-import { Rate, Icon } from 'antd';
+import { Col } from 'antd';
+import './Queue.css';
 
 const Panel = Collapse.Panel;
 
@@ -22,9 +23,9 @@ const Queue = (props) => {
   }
 
   return (
-    <div className="queue">
+    <Col className="queue" xs={0} sm={4} md={4} lg={8} xl={8} >
       {sortedData.map(item=>(
-        <Collapse bordered={false} defaultActiveKey={['1']} className="card">
+        <Collapse bordered={false} defaultActiveKey={['1']} className="card" key={item.id}>
           <Panel header={
             <div>
               {item.gender ? <img src={`./img/${item.gender}.png`} className="card-icon" /> :
@@ -35,11 +36,10 @@ const Queue = (props) => {
             </div>
           } key={item.id} style={customPanelStyle}>
 
-
-            {item.favoriteColor && <p><b className="card-titles">Favorite color:</b> {item.favoriteColor}</p>}
-            {item.sadValue && <p><b className="card-titles">Sad</b> <Slider defaultValue={item.sadValue} min={0} max={7} marks={{0:'1', 7: '7'}} disabled={true} className="slider"/> </p>}
-            {item.scaredValue && <p><b className="card-titles">Scared</b> <Slider defaultValue={item.scaredValue} min={0} max={7} marks={{0:'1', 7: '7'}} disabled={true} className="slider"/> </p> }
-              {item.careAbout && <p><b className="card-titles">Care About</b></p>}
+            {item.favoriteColor && <div><b className="card-titles">Favorite color:</b> {item.favoriteColor}</div>}
+            {item.sadValue && <div><b className="card-titles">Sad</b> <Slider defaultValue={item.sadValue} min={0} max={7} marks={{0:'1', 7: '7'}} disabled={true} className="slider"/> </div>}
+            {item.scaredValue && <div><b className="card-titles">Scared</b> <Slider defaultValue={item.scaredValue} min={0} max={7} marks={{0:'1', 7: '7'}} disabled={true} className="slider"/> </div> }
+              {item.careAbout && <div><b className="card-titles">Care About</b></div>}
               <ul>
                 {item.careAbout && item.careAbout.map(person=>(
                   <li>{person}</li>
@@ -50,7 +50,7 @@ const Queue = (props) => {
           </Panel>
         </Collapse>
       ))}
-    </div>
+    </Col>
   )
 };
 
