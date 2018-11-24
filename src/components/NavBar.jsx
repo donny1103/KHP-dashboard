@@ -3,11 +3,9 @@ import { Badge, Menu, Col, Row} from 'antd';
 import 'antd/dist/antd.css';
 import './NavBar.css';
 
-
 class NavBar extends Component {
  constructor(props){
    super(props)
-
  }
 
  onClick = (e) => {
@@ -31,7 +29,8 @@ class NavBar extends Component {
         </div>
 
         <Menu mode="inline" defaultSelectedKeys={['1']} >
-          <Menu.Item key="1" onClick={this.onClick}>
+
+            <Menu.Item key="1" onClick={this.onClick}>
               <Row className="queue-priority" type="flex" justify="center">
                 <Col md={10} lg={6} xl={6}><strong style={{color:"#D23827FF"}}>1st</strong></Col>  
                 <Col md={0} lg={10} xl={10}>Priority</Col>
@@ -40,6 +39,7 @@ class NavBar extends Component {
                 </Col>
               </Row>
           </Menu.Item>
+
           <Menu.Item key="2" onClick={this.onClick}>
             <Row className="queue-priority" type="flex" justify="center">
               <Col md={10} lg={6} xl={6}><strong style={{color:"#D37B2CFF"}}>2nd</strong></Col>  
@@ -49,6 +49,7 @@ class NavBar extends Component {
               </Col>
             </Row>
           </Menu.Item>
+
           <Menu.Item key="3" onClick={this.onClick}>
             <Row className="queue-priority" type="flex" justify="center">
               <Col md={10} lg={6} xl={6}><strong style={{color:"#CBA745FF"}}>3rd</strong></Col>  
@@ -58,15 +59,17 @@ class NavBar extends Component {
               </Col>
             </Row>
           </Menu.Item>
+
           <Menu.Item key="4" onClick={this.onClick}>
             <Row className="queue-priority" type="flex" justify="center">
               <Col md={10} lg={6} xl={6}><strong style={{color:"#55AF39FF"}}>4th</strong></Col>  
               <Col md={0} lg={10} xl={10}>Priority</Col>
               <Col md={4} lg={8} xl={8}>
-               {this.props.Data.lowPrioity ? this.props.Data.lowPrioity.length : null}  
+                {this.props.Data.lowPrioity ? this.props.Data.lowPrioity.length : null}  
               </Col>
-            </Row>
+            </Row>            
           </Menu.Item>
+
         </Menu>
       </Col>
    );

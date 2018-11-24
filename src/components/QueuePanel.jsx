@@ -1,5 +1,5 @@
 import React from 'react';
-import { Slider, Button, Collapse, Col, Row } from 'antd';
+import { Slider, Button, Collapse, Col, Row, Progress } from 'antd';
 const Panel = Collapse.Panel;
 
 const QueuePanel = (props) => {
@@ -36,17 +36,57 @@ const QueuePanel = (props) => {
       showArrow={false} 
       >
         {props.data.age && <div className="card-titles">Age: {props.data.age} </div>}
-        {props.data.favoriteColor && <div><b className="card-titles">Favorite color:</b> {props.data.favoriteColor}</div>}
-        {props.data.sadValue && <div><b className="card-titles">Sad</b> <Slider defaultValue={props.data.sadValue} min={0} max={7} marks={{0:'1', 7: '7'}} disabled={true} className="slider"/> </div>}
-        {props.data.scaredValue && <div><b className="card-titles">Scared</b> <Slider defaultValue={props.data.scaredValue} min={0} max={7} marks={{0:'1', 7: '7'}} disabled={true} className="slider"/> </div> }
-          {props.data.careAbout && <div><b className="card-titles">Care About</b></div>}
-          <ul>
-            {props.data.careAbout && props.data.careAbout.map(person=>(
+
+        {
+          props.data.favoriteColor && 
+          <div>
+           <b className="card-titles">
+            <img src="./img/painting-palette.png" style={{width:'2vw'}}/>
+            </b> 
+            {props.data.favoriteColor}
+          </div>
+        }
+
+        {
+          props.data.sadValue && 
+          <div>
+            <b className="card-titles">Sad</b>
+            <Progress percent={Math.round(props.data.sadValue/7 * 100)} status='active'/> 
+            <Progress type="circle" percent={Math.round(props.data.sadValue/7 * 100)} status="active" />
+          </div>
+        }
+
+        {
+          props.data.scaredValue && 
+          <div>
+            <b className="card-titles">Scared</b> 
+            <Progress  percent={Math.round(props.data.scaredValue/7 * 100)} status='active'/> 
+            <Progress type="circle" percent={Math.round(props.data.scaredValue/7 * 100)} status="active" /> 
+          </div> 
+        }
+
+        {
+          props.data.careAbout && 
+          <div><b className="card-titles">Care About</b></div>
+        }
+
+        <ul>
+          {
+            props.data.careAbout && props.data.careAbout.map(person=>(
               <li>{person}</li>
-            ))}
-          </ul>
+            ))
+          }
+        </ul>
+
         <Button type='primary' style={{backgroundColor: '#0b95c8'}}>End Session</Button>
-        <Button type='primary' style={{backgroundColor: '#0b95c8'}} className="chat-button" value={JSON.stringify({type: 'startChat',clientName: props.data.name, id: props.data.id, counsellorName: 'Dan Karres'})} onClick={clientName}>Chat ></Button>
+        <Button 
+          type='primary' 
+          style={{backgroundColor: '#0b95c8'}} 
+          className="chat-button" 
+          value={JSON.stringify({type: 'startChat',clientName: props.data.name, id: props.data.id, counsellorName: 'Dan Karres'})} 
+          onClick={clientName}>
+          Chat>
+        </Button>
       </Panel>
     </Collapse>
   )
