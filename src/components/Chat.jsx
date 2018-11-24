@@ -20,7 +20,7 @@ class Chat extends Component {
   render () {
 
     return (
-      <Col className='chat' xs={24} sm={24} md={18} lg={12} xl={12}>
+      <Col className='chat' xs={24} sm={20} md={17} lg={12}>
         <Messages 
         Messages={this.state.messages} 
         clientName={this.props.clientName}

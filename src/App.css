@@ -13,47 +13,5 @@
    display: block;
 }
 
-/*.text-font {
-  font-family: HelveticaRoundedLTStd-Bd;
-}*/
 
-.ant-slider-handle {
-  background-color: red !important;
-}
 
-.ant-slider-step {
-  background-color: pink !important;
-}
-
-.ant-slider-dot {
-  background-color: pink !important;
-}
-
-.card {
-  margin: 2% !important;
-  width: 96%;
-  /*height: 3.5rem !important;*/
-  /*padding-top: .4rem !important;*/
-  /*text-align: left !important;*/
-  /*padding-left: .75rem !important;*/
-}
-
-.card-titles {
-  font-family: 'HelveticaRoundedLTStd-Bd';
-  color: #2e5871;
-}
-
-.ant-card-body {
-  padding: .8rem !important;
-}
-
-.card-icon {
-  width: 2.4rem;
-  margin-right: .5rem;
-  float: left;
-}
-
-.wait-time {
-  float: right;
-  margin-right: 1rem;
-}

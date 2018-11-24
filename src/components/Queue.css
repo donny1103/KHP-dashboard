@@ -2,3 +2,42 @@
   height: 100vh;
   background-color: #e6f7ff;
  }
+
+ .card-info {
+   font-size: 1.1vw;
+}
+
+.ant-slider-handle {
+  background-color: red !important;
+}
+
+.ant-slider-step {
+  background-color: pink !important;
+}
+
+.ant-slider-dot {
+  background-color: pink !important;
+}
+
+.card {
+  margin: 2% !important;
+  width: 96%;
+  background: '#fff';
+  border-radius: 10px;
+  border: 0;
+  overflow: hidden;
+}
+
+.card-titles {
+  font-family: 'HelveticaRoundedLTStd-Bd';
+  color: #2e5871;
+}
+
+/* .ant-card-body {
+  padding: .8rem !important;
+} */
+
+.card-icon {
+  width:100%;
+  padding-right: 10%;
+}
