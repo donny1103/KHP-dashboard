@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import './App.scss';
 import NavBar from './components/NavBar.jsx';
 import Queue from './components/Queue.jsx';
 import Chat from './components/Chat.jsx'

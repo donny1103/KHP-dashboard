@@ -1,6 +1,5 @@
 import React from 'react';
 import { Collapse, Col } from 'antd';
-import './Queue.css';
 import QueuePanel from './QueuePanel.jsx'
 const Panel = Collapse.Panel;
 

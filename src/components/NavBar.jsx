@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Badge, Menu, Col, Row} from 'antd';
 import 'antd/dist/antd.css';
-import './NavBar.css';
 
 class NavBar extends Component {
  constructor(props){

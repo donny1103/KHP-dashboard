@@ -17,13 +17,13 @@ const QueuePanel = (props) => {
               {props.data.gender ? <img src={`./img/${props.data.gender}.png`} className="card-icon" /> :
                 <img src={`./img/question.png`} className="card-icon" />}
             </Col>
-            <Col sm={12} md={12} lg={{span:12, push:2}} xl={12} >
+            <Col sm={12} md={12} lg={10} xl={10} >
               <Row>
                 {props.data.name}
               </Row>
               <Row> <span>Severity: {props.data.severity} </span></Row>
             </Col>
-            <Col sm={0} md={0} lg={6} xl={6} className="wait-time">
+            <Col sm={0} md={0} lg={8} xl={8} className="wait-time">
               {
                 Math.round((Date.parse(new Date()) - Date.parse(props.data.time))/60000)<60 ? 
                 <span>{Math.round((Date.parse(new Date()) - Date.parse(props.data.time))/60000)} mins ago </span> :
@@ -39,7 +39,7 @@ const QueuePanel = (props) => {
         {
           props.data.age && 
         <div >
-          <b className="card-titles">Age: </b>
+          <b className="info-titles">Age: </b>
           {props.data.age}
         </div> 
         }
@@ -47,7 +47,7 @@ const QueuePanel = (props) => {
         {
           props.data.favoriteColor && 
           <div>
-            <b className="card-titles">Color: </b>
+            <b className="info-titles">Color: </b>
             {props.data.favoriteColor}
           </div>
         }
@@ -55,7 +55,7 @@ const QueuePanel = (props) => {
         {
           props.data.sadValue && 
           <div>
-            <b className="card-titles">Sad </b>
+            <b className="info-titles">Sad </b>
             <Progress percent={Math.round(props.data.sadValue/7 * 100)} status='active'/> 
           </div>
         }
@@ -63,14 +63,14 @@ const QueuePanel = (props) => {
         {
           props.data.scaredValue && 
           <div>
-            <b className="card-titles">Scared</b> 
+            <b className="info-titles">Scared</b> 
             <Progress  percent={Math.round(props.data.scaredValue/7 * 100)} status='active'/> 
           </div> 
         }
 
         {
           props.data.careAbout && 
-          <div><b className="card-titles">Care About</b></div>
+          <div><b className="info-titles">Care About</b></div>
         }
         <ul>
           {

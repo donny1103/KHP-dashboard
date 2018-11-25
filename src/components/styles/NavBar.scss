@@ -1,0 +1,40 @@
+.navbar {
+  height: 100vh;
+
+  .khp-logo {
+    width: 100%;
+    padding: 5% 10% 5% 10%;
+  }
+
+  .counsellor-profile {
+    padding: 5% 10% 5% 10%;
+
+    .profile-img{
+      width: 100%;
+    }
+
+    .counsellor-name {
+      text-align: center;
+      font-size: 2vw;
+      margin: 5% 0 0 0;
+    }
+  }
+
+  .queue-priority {
+    font-size: 1.2vw;
+    text-align: center;
+  } 
+
+  .ant-menu-inline {
+    border:0;
+  }
+    
+  .ant-menu-vertical .ant-menu-item:after, .ant-menu-vertical-left .ant-menu-item:after, .ant-menu-vertical-right .ant-menu-item:after, .ant-menu-inline .ant-menu-item:after {
+    border: 0;
+  }
+    
+}
+
+
+
+

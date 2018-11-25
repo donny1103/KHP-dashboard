@@ -3,7 +3,7 @@ import ChatBar from './ChatBar.jsx';
 import Messages from './Messages.jsx';
 import { Col} from 'antd';
 import 'antd/dist/antd.css';
-import './Chat.css';
+
 class Chat extends Component {
   state = {
     messages:[],

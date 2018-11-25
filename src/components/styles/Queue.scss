@@ -1,0 +1,57 @@
+.queue {
+
+  height: 100vh;
+  background-color: #e6f7ff;
+
+  .card {
+    margin: 2% !important;
+    width: 96%;
+    background: '#fff';
+    border-radius: 10px;
+    border: 0;
+    overflow: hidden;
+
+    .card-info {
+      font-size: 1.3vw;
+      .card-icon {
+        width: 60%;
+        margin-left: 5%;
+      }
+    }
+
+    .personal-info {
+      font-size: 1.3vw;
+      margin: 3% 0 0 1%;
+
+      .info-titles {
+        font-family: 'HelveticaRoundedLTStd-Bd';
+        color: #2e5871;
+      }
+    }
+  }
+ }
+
+
+
+
+// .ant-slider-handle {
+//   background-color: red !important;
+// }
+
+// .ant-slider-step {
+//   background-color: pink !important;
+// }
+
+// .ant-slider-dot {
+//   background-color: pink !important;
+// }
+
+
+
+
+
+/* .ant-card-body {
+  padding: .8rem !important;
+} */
+
+
