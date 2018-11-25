@@ -1,7 +1,3 @@
-.chat-button {
-  float: right;
-}
-
 .chat {
   height: 100vh;
 }
@@ -10,9 +6,9 @@
   position: absolute;
   bottom:0; 
   width: 100%;
-  height: 20%;
+  height: 15%;
   background-color: #2e5871;
-  padding: 5% 15% 5% 15%;
+  padding: 6% 10% 5% 10%;
 }
 
 .messages {

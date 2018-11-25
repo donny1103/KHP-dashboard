@@ -35,14 +35,19 @@ const QueuePanel = (props) => {
       key={props.data.id}
       showArrow={false} 
       >
-        {props.data.age && <div className="card-titles">Age: {props.data.age} </div>}
+      <div className="personal-info">
+        {
+          props.data.age && 
+        <div >
+          <b className="card-titles">Age: </b>
+          {props.data.age}
+        </div> 
+        }
 
         {
           props.data.favoriteColor && 
           <div>
-           <b className="card-titles">
-            <img src="./img/painting-palette.png" style={{width:'2vw'}}/>
-            </b> 
+            <b className="card-titles">Color: </b>
             {props.data.favoriteColor}
           </div>
         }
@@ -50,9 +55,8 @@ const QueuePanel = (props) => {
         {
           props.data.sadValue && 
           <div>
-            <b className="card-titles">Sad</b>
+            <b className="card-titles">Sad </b>
             <Progress percent={Math.round(props.data.sadValue/7 * 100)} status='active'/> 
-            <Progress type="circle" percent={Math.round(props.data.sadValue/7 * 100)} status="active" />
           </div>
         }
 
@@ -61,7 +65,6 @@ const QueuePanel = (props) => {
           <div>
             <b className="card-titles">Scared</b> 
             <Progress  percent={Math.round(props.data.scaredValue/7 * 100)} status='active'/> 
-            <Progress type="circle" percent={Math.round(props.data.scaredValue/7 * 100)} status="active" /> 
           </div> 
         }
 
@@ -69,7 +72,6 @@ const QueuePanel = (props) => {
           props.data.careAbout && 
           <div><b className="card-titles">Care About</b></div>
         }
-
         <ul>
           {
             props.data.careAbout && props.data.careAbout.map(person=>(
@@ -77,6 +79,7 @@ const QueuePanel = (props) => {
             ))
           }
         </ul>
+      </div>
 
         <Button type='primary' style={{backgroundColor: '#0b95c8'}}>End Session</Button>
         <Button 

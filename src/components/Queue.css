@@ -4,7 +4,11 @@
  }
 
  .card-info {
-   font-size: 1.1vw;
+   font-size: 1.2vw;
+}
+.personal-info {
+  font-size: 1.2vw;
+  margin: 3% 0 0 1%;
 }
 
 .ant-slider-handle {
@@ -38,6 +42,6 @@
 } */
 
 .card-icon {
-  width:100%;
-  padding-right: 10%;
+  width: 60%;
+  margin-left: 5%;
 }
