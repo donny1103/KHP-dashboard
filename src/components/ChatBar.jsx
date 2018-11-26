@@ -1,5 +1,5 @@
 import React from 'react';
-import { Input, Button } from 'antd';
+import { Input } from 'antd';
 const ChatBar = (props) => {
 
   const onKeyChange = (e) => {
@@ -13,8 +13,9 @@ const ChatBar = (props) => {
   }
 
   return (
-    <div className="chat-input">
+    <div className="chatbar">
       <Input 
+        className="chat-input"
         size="large"
         value={props.Message} 
         onChange={onKeyChange}

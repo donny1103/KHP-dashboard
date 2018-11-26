@@ -6,7 +6,6 @@
   .card {
     margin: 2% !important;
     width: 96%;
-    background: '#fff';
     border-radius: 10px;
     border: 0;
     overflow: hidden;
@@ -22,11 +21,14 @@
     .personal-info {
       font-size: 1.3vw;
       margin: 3% 0 0 1%;
-
-      .info-titles {
-        font-family: 'HelveticaRoundedLTStd-Bd';
-        color: #2e5871;
+      .info-item {
+        margin-bottom: 5%;
+        .item-titles {
+          font-family: 'HelveticaRoundedLTStd-Bd';
+          color: #2e5871;
+        }
       }
+
     }
   }
  }

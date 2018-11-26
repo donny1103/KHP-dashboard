@@ -15,7 +15,8 @@ class App extends Component {
       mediumPrioity:[],
       lowPrioity:[],
       toQueueData:'immediatePrioity',
-      clientName: ''
+      clientName: '',
+      isChatStart:false
     }
   }
 
@@ -37,8 +38,8 @@ class App extends Component {
   }
 
   handleChatClick = (value) => {
-    let parsedVal = JSON.parse(value)
-    this.setState({clientName:parsedVal.clientName})
+    let parsedVal = JSON.parse(value);
+    this.setState({clientName:parsedVal.clientName, isChatStart:true});
     this.socket.send(value);
   }
 
@@ -87,7 +88,8 @@ class App extends Component {
           <Queue 
             Data={this.state}
             showDataKey={this.state.toQueueData} 
-            clientName={this.handleChatClick}
+            startChat={this.handleChatClick}
+            isChatStart={this.state.isChatStart}
           />
           <Chat clientName={this.state.clientName}/>
       </Row>

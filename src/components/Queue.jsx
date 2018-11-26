@@ -1,7 +1,6 @@
 import React from 'react';
-import { Collapse, Col } from 'antd';
+import { Col } from 'antd';
 import QueuePanel from './QueuePanel.jsx'
-const Panel = Collapse.Panel;
 
 const Queue = (props) => {
 
@@ -10,7 +9,7 @@ const Queue = (props) => {
   return (
     <Col className="queue" xs={0} sm={4} md={4} lg={8}>
       {sortedData.map(item=>(
-          <QueuePanel data={item} clientName={props.clientName} key={item.id}/>
+          <QueuePanel data={item} startChat={props.startChat} key={item.id} isChatStart={props.isChatStart}/>
       ))}
     </Col>
   )

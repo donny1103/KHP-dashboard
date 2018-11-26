@@ -1,15 +1,20 @@
 import React from 'react';
-import { Slider, Button, Collapse, Col, Row, Progress } from 'antd';
+import { Button, Collapse, Col, Row, Progress } from 'antd';
 const Panel = Collapse.Panel;
 
 const QueuePanel = (props) => {
 
-  let clientName = (e) => {
-    props.clientName(e.target.value)
+  const startChat = (e) => {
+    props.startChat(e.target.value)
   }
 
   return(
-    <Collapse bordered={false} defaultActiveKey={['1']} className="card" key={props.data.id}>
+    <Collapse 
+      bordered={true} 
+      defaultActiveKey={['1']} 
+      className="card" key={props.data.id}
+      style={{backgroundColor:'white'}}
+    >
       <Panel 
         header={
           <Row type="flex" justify="center" align="middle" className="card-info">
@@ -35,60 +40,59 @@ const QueuePanel = (props) => {
       key={props.data.id}
       showArrow={false} 
       >
-      <div className="personal-info">
-        {
-          props.data.age && 
-        <div >
-          <b className="info-titles">Age: </b>
-          {props.data.age}
-        </div> 
-        }
-
-        {
-          props.data.favoriteColor && 
-          <div>
-            <b className="info-titles">Color: </b>
-            {props.data.favoriteColor}
-          </div>
-        }
-
-        {
-          props.data.sadValue && 
-          <div>
-            <b className="info-titles">Sad </b>
-            <Progress percent={Math.round(props.data.sadValue/7 * 100)} status='active'/> 
-          </div>
-        }
-
-        {
-          props.data.scaredValue && 
-          <div>
-            <b className="info-titles">Scared</b> 
-            <Progress  percent={Math.round(props.data.scaredValue/7 * 100)} status='active'/> 
-          </div> 
-        }
-
-        {
-          props.data.careAbout && 
-          <div><b className="info-titles">Care About</b></div>
-        }
-        <ul>
+        <div className="personal-info">
           {
-            props.data.careAbout && props.data.careAbout.map(person=>(
-              <li>{person}</li>
-            ))
+            props.data.age && 
+          <div className="info-item">
+            <b className="item-titles">Age: </b>
+            {props.data.age}
+          </div> 
           }
-        </ul>
-      </div>
 
-        <Button type='primary' style={{backgroundColor: '#0b95c8'}}>End Session</Button>
+          {
+            props.data.favoriteColor && 
+            <div className="info-item">
+              <b className="item-titles">Color: </b>
+              {props.data.favoriteColor}
+            </div>
+          }
+
+          {
+            props.data.sadValue && 
+            <div className="info-item">
+              <b className="item-titles">Sad </b>
+              <Progress percent={Math.round(props.data.sadValue/7 * 100)} status='active'/> 
+            </div>
+          }
+
+          {
+            props.data.scaredValue && 
+            <div className="info-item">
+              <b className="item-titles">Scared</b> 
+              <Progress  percent={Math.round(props.data.scaredValue/7 * 100)} status='active'/> 
+            </div> 
+          }
+
+          {
+            props.data.careAbout && 
+            <div className="info-item"><b className="item-titles">Care About</b></div>
+          }
+          <ul>
+            {
+              props.data.careAbout && props.data.careAbout.map(person=>(
+                <li>{person}</li>
+              ))
+            }
+          </ul>
+        </div>
         <Button 
           type='primary' 
           style={{backgroundColor: '#0b95c8'}} 
+          key={props.data.id}
           className="chat-button" 
           value={JSON.stringify({type: 'startChat',clientName: props.data.name, id: props.data.id, counsellorName: 'Dan Karres'})} 
-          onClick={clientName}>
-          Chat>
+          onClick={startChat}>
+          {props.isChatStart ? <b>Finish</b> : <b>Chat ></b>}
         </Button>
       </Panel>
     </Collapse>
