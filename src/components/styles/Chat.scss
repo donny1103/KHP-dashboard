@@ -24,9 +24,11 @@
     height: 15%;
     background-color: #2e5871;
     .chat-input {
+      position: relative;
+      left: 10%;
+      top: 31%;
       width: 80%;
-      margin: 6% 10% 5% 10%;
-      
+      height: 45%; 
     }
   }
 }
