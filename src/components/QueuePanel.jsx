@@ -89,15 +89,14 @@ const QueuePanel = (props) => {
               ))
             }
           </ul>
+          <Button 
+            type='primary'     
+            className="chat-button" 
+            value={props.data.id} 
+            onClick={startChat}>
+            <b>Chat ></b>
+          </Button>
         </div>
-        <Button 
-          type='primary' 
-          style={{backgroundColor: '#0b95c8'}} 
-          className="chat-button" 
-          value={props.data.id} 
-          onClick={startChat}>
-          <b>Chat ></b>
-        </Button>
       </Panel>
     </Collapse>
   )
