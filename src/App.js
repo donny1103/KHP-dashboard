@@ -9,38 +9,53 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      queueData:'',
+      queueObject:'',
       immediatePrioity:[],
       highPrioity:[],
       mediumPrioity:[],
       lowPrioity:[],
       toQueueData:'immediatePrioity',
       clientName: '',
-      isChatStart:false
+      isChatStart:false,
+      selectedQueue:''
     }
   }
 
-  handlePrioityClick = (val) => {
+  handlePrioitySelect = (val) => {
     let toQueueData;
     if (val === '1'){
       toQueueData = 'immediatePrioity';
     }
-    if (val === '2'){
+    else if (val === '2'){
       toQueueData = 'highPrioity';
     }
-    if (val === '3'){
+    else if (val === '3'){
       toQueueData = 'mediumPrioity';
     }
-    if (val === '4'){
+    else if (val === '4'){
       toQueueData = 'lowPrioity';
     }
     this.setState({toQueueData:toQueueData})
   }
 
-  handleChatClick = (value) => {
-    let parsedVal = JSON.parse(value);
-    this.setState({clientName:parsedVal.clientName, isChatStart:true});
-    this.socket.send(value);
+  handlePanelSelect = (key) => {
+    for(let objKey in this.state.queueObject){
+      if (key[0] === objKey) {
+        let selectedQueue = this.state.queueObject[objKey];
+        this.setState({selectedQueue:selectedQueue});
+      }
+    }
+  }
+
+  handleChatClick = (queueId) => {
+    console.log(queueId)
+    for(let key in this.state.queueObject){
+      if (queueId === key) {
+        let selectedQueue = this.state.queueObject[key];
+        this.setState({selectedQueue:{...selectedQueue,type: 'startChat', id: key, clientName: selectedQueue.name,counsellorName: 'Dan Karres'}, clientName: selectedQueue.name});
+      }
+    }
+    // this.socket.send(this.state.selectedQueue);
   }
 
   componentDidMount () {
@@ -59,13 +74,13 @@ class App extends Component {
           if (queue[key].severity >= 1 && queue[key].severity < 25){
             lowPrioityArr.push({...queue[key], id:key})
           }
-          if (queue[key].severity >= 25 && queue[key].severity < 50){
+          else if (queue[key].severity >= 25 && queue[key].severity < 50){
             mediumPrioityArr.push({...queue[key], id:key})
           }
-          if (queue[key].severity >= 50 && queue[key].severity < 75){
+          else if (queue[key].severity >= 50 && queue[key].severity < 75){
             highPrioityArr.push({...queue[key], id:key})
           }
-          if (queue[key].severity >= 75 && queue[key].severity <= 100){
+          else if (queue[key].severity >= 75 && queue[key].severity <= 100){
             immediatePrioityArr.push({...queue[key], id:key})
           }
         }
@@ -76,7 +91,7 @@ class App extends Component {
           lowPrioity:lowPrioityArr
         })
 
-        this.setState({queueData:queue});
+        this.setState({queueObject:queue});
       }
     }
   }
@@ -84,12 +99,12 @@ class App extends Component {
   render() {
     return (
       <Row className="App">
-          <NavBar Data={this.state} onClick={this.handlePrioityClick}/>
+          <NavBar Data={this.state} onClick={this.handlePrioitySelect}/>
           <Queue 
             Data={this.state}
             showDataKey={this.state.toQueueData} 
             startChat={this.handleChatClick}
-            isChatStart={this.state.isChatStart}
+            onPanelClick={this.handlePanelSelect}
           />
           <Chat clientName={this.state.clientName}/>
       </Row>

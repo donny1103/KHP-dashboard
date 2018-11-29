@@ -5,22 +5,27 @@ const Panel = Collapse.Panel;
 const QueuePanel = (props) => {
 
   const startChat = (e) => {
+    console.log(e.target.value)
     props.startChat(e.target.value)
+  }
+  
+  const onPanelClick = (key) => {
+    props.onPanelClick(key)
   }
 
   return(
     <Collapse 
-      bordered={true} 
-      defaultActiveKey={['1']} 
+      bordered={true}  
       className="card" key={props.data.id}
       style={{backgroundColor:'white'}}
+      
     >
       <Panel 
         header={
           <Row type="flex" justify="center" align="middle" className="card-info">
             <Col sm={12} md={12} lg={6} xl={6}>
-              {props.data.gender ? <img src={`./img/${props.data.gender}.png`} className="card-icon" /> :
-                <img src={`./img/question.png`} className="card-icon" />}
+              {props.data.gender ? <img alt="gender" src={`./img/${props.data.gender}.png`} className="card-icon" /> :
+                <img alt="gender" src={`./img/question.png`} className="card-icon" />}
             </Col>
             <Col sm={12} md={12} lg={10} xl={10} >
               <Row>
@@ -88,11 +93,10 @@ const QueuePanel = (props) => {
         <Button 
           type='primary' 
           style={{backgroundColor: '#0b95c8'}} 
-          key={props.data.id}
           className="chat-button" 
-          value={JSON.stringify({type: 'startChat',clientName: props.data.name, id: props.data.id, counsellorName: 'Dan Karres'})} 
+          value={props.data.id} 
           onClick={startChat}>
-          {props.isChatStart ? <b>Finish</b> : <b>Chat ></b>}
+          <b>Chat ></b>
         </Button>
       </Panel>
     </Collapse>
