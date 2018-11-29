@@ -5,13 +5,8 @@ const Panel = Collapse.Panel;
 
 const QueuePanel = (props) => {
 
-  const startChat = (e) => {
-    console.log(e.target.value)
-    props.startChat(e.target.value)
-  }
-  
-  const onPanelClick = (key) => {
-    props.onPanelClick(key)
+  const generateStartChatFunction = (id) => () => {
+    props.startChat(id)
   }
 
   return(
@@ -19,65 +14,90 @@ const QueuePanel = (props) => {
       bordered={true}  
       className="card" key={props.data.id}
       style={{backgroundColor:'white'}}
-      
     >
       <Panel 
         header={
           <Row type="flex" justify="center" align="middle" className="card-info">
-            <Col sm={12} md={12} lg={6} xl={6}>
+            <Col xs={0} sm={0} md={6} lg={6} xl={6}>
               {props.data.gender ? <img alt="gender" src={`./img/${props.data.gender}.png`} className="card-icon" /> :
                 <img alt="gender" src={`./img/question.png`} className="card-icon" />}
             </Col>
-            <Col sm={12} md={12} lg={10} xl={10} >
+            <Col xs={0} sm={0} md={10} lg={10} xl={10} >
               <Row>
                 {props.data.name}
               </Row>
               <Row> <span>Severity: {props.data.severity} </span></Row>
             </Col>
-            <Col sm={0} md={0} lg={8} xl={8} className="wait-time">
+            <Col className="card-info" xs={0} sm={0} md={8} lg={8} xl={8}>
               <span>{moment(props.data.time).fromNow()}</span>
+            </Col>
+            <Col xs={0} sm={24} md={0} lg={0} xl={0}>
+              <Row type="flex" className="card-info">
+                <p className="header-mobile">{props.data.name}  Severity: {props.data.severity}</p>  
+              </Row>
+              <Row type="flex" className="card-info">
+                <p className="header-mobile">{moment(props.data.time).fromNow()}</p>
+              </Row>
             </Col>
           </Row>
         } 
       key={props.data.id}
       showArrow={false} 
       >
-        <div className="personal-info">
+        <Row className="personal-info">
           {
             props.data.age && 
-          <div className="info-item">
-            <b className="item-titles">Age: </b>
-            {props.data.age}
-          </div> 
+            <Col className="info-item" >
+              <b className="item-titles">Age: </b>
+              {props.data.age}
+            </Col> 
           }
 
           {
             props.data.favoriteColor && 
-            <div className="info-item">
+            <Col className="info-item" >
               <b className="item-titles">Color: </b>
               {props.data.favoriteColor}
-            </div>
+            </Col>
           }
 
           {
             props.data.sadValue && 
-            <div className="info-item">
+            <Col className="info-item" xs={0} sm={0} md={24} lg={24} xl={24}>
               <b className="item-titles">Sad </b>
               <Progress percent={Math.round(props.data.sadValue/7 * 100)} status='active'/> 
-            </div>
+            </Col>
+          }
+
+          {
+            props.data.sadValue && 
+            <Col className="info-item" xs={24} sm={24} md={0} lg={0} xl={0}>
+              <b className="item-titles">Sad: </b>
+              {props.data.sadValue}<span>/7</span> 
+            </Col>
           }
 
           {
             props.data.scaredValue && 
-            <div className="info-item">
+            <Col className="info-item" xs={0} sm={0} md={24} lg={24} xl={24}>
               <b className="item-titles">Scared</b> 
               <Progress  percent={Math.round(props.data.scaredValue/7 * 100)} status='active'/> 
-            </div> 
+            </Col> 
+          }
+
+          {
+            props.data.sadValue && 
+            <Col className="info-item" xs={24} sm={24} md={0} lg={0} xl={0}>
+              <b className="item-titles">Scared: </b>
+              {props.data.scaredValue}<span>/7</span> 
+            </Col>
           }
 
           {
             props.data.careAbout && 
-            <div className="info-item"><b className="item-titles">Care About</b></div>
+            <Col className="info-item" xs={0} sm={0} md={24} lg={24} xl={24}>
+              <b className="item-titles">Care About</b>
+            </Col>
           }
           <ul>
             {
@@ -90,10 +110,10 @@ const QueuePanel = (props) => {
             type='primary'     
             className="chat-button" 
             value={props.data.id} 
-            onClick={startChat}>
+            onClick={generateStartChatFunction(props.data.id)}>
             <b>Chat ></b>
           </Button>
-        </div>
+        </Row>
       </Panel>
     </Collapse>
   )

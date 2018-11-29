@@ -11,13 +11,16 @@
     overflow: hidden;
 
     .card-info {
-      font-size: 1.3vw;
+      font-size: 1.5vw;
       .card-icon {
         width: 60%;
         margin-left: 5%;
       }
     }
-
+    .header-mobile {
+      margin-bottom: 0%;
+      font-size: 1.5vw;
+    }
     .personal-info {
       font-size: 1.3vw;
       margin: 3% 0 0 1%;
