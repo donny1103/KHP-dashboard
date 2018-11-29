@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button, Collapse, Col, Row, Progress } from 'antd';
+import moment from 'moment';
 const Panel = Collapse.Panel;
 
 const QueuePanel = (props) => {
@@ -34,11 +35,7 @@ const QueuePanel = (props) => {
               <Row> <span>Severity: {props.data.severity} </span></Row>
             </Col>
             <Col sm={0} md={0} lg={8} xl={8} className="wait-time">
-              {
-                Math.round((Date.parse(new Date()) - Date.parse(props.data.time))/60000)<60 ? 
-                <span>{Math.round((Date.parse(new Date()) - Date.parse(props.data.time))/60000)} mins ago </span> :
-                <span>{Math.round((Date.parse(new Date()) - Date.parse(props.data.time))/3600000)} hour ago</span>
-              }
+              <span>{moment(props.data.time).fromNow()}</span>
             </Col>
           </Row>
         } 

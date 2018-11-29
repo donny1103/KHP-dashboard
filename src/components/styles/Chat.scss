@@ -2,18 +2,30 @@
   height: 100vh;
 
   .messages {
+    display: block;
     padding: 3%;
+    height: 85%;
+    overflow: auto;
+
     .message-bubbles-left {
-      background-color: #eee;
-      padding: .5rem;
-      border-radius: .75rem;
+      display: flex;
+      .client-message {
+        background-color: #eee;
+        padding: .5rem;
+        border-radius: .75rem;
+      }
     }
     .message-bubbles-right {
-      background-color: #0b95c8;
-      color: #fff;
-      padding: .5rem;
-      border-radius: .75rem;
-      float: right;
+      display: flex;
+      flex-direction: row-reverse;
+      margin-top: 2%;
+      .counsellor-message {
+        background-color: #0b95c8;
+        color: #fff;
+        padding: .5rem;
+        border-radius: .75rem;
+      }
+      
     }
   }
 
