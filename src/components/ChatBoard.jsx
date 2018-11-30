@@ -1,7 +1,10 @@
 import React from 'react';
-import { Icon, Col } from 'antd';
-import ChatBoardCard from './ChatBoardCard.jsx'
+import { Icon, Col, Collapse } from 'antd';
+import ChatBoardPanelHeader from './ChatBoardPanelHeader.jsx'
+import ChatBoardPanelInfo from './ChatBoardPanelInfo.jsx'
 import 'antd/dist/antd.css';
+
+const Panel = Collapse.Panel;
 
 const ChatBoard = (props) =>{
 
@@ -12,13 +15,28 @@ const ChatBoard = (props) =>{
   return (
     <>
       <Col span={4}>
-        <Icon className='chatboard-icon' type={props.expendChatBoard ? 'right' : 'left'} onClick={toggleChatBoard}/>
+        <div><Icon className='chatboard-icon' type={props.expendChatBoard ? 'right' : 'left'} onClick={toggleChatBoard}/></div>
       </Col>
       { 
         props.expendChatBoard ? 
         <Col span={20}>
           {
-            props.chattingQueue.length !== 0 ? props.chattingQueue.map((queue)=>(<ChatBoardCard key={queue.id} data={queue}/>)) : null
+            props.chattingQueue.length !== 0 ? props.chattingQueue.map(queue=>(
+              <Collapse 
+                bordered={true}  
+                className="chat-board-card" 
+                key={queue.id}
+                style={{backgroundColor:'white'}}
+              >
+                <Panel 
+                  header={<ChatBoardPanelHeader data={queue}/>} 
+                  key={queue.id}
+                  showArrow={false} 
+                >
+                  <ChatBoardPanelInfo data={queue}/>       
+                </Panel>
+              </Collapse>
+            )) : null
           }
         </Col> 
         : null 

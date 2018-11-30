@@ -20,12 +20,31 @@
 .chat-board {
   position: absolute;
   right: 0;
-  height: 100%;
-  background-color: #e6f7ff;
+  height: 100vh;
+  background-color: #2e5871;
   
   .chatboard-icon {
+    height: 100vh;
     font-size: 1.5rem;
     margin-top: 47vh;
+    color: #F2F2F2;
+  }
+
+  .chat-board-card {
+    margin: 3% 0 2% 0 !important;
+    width: 96%;
+    border-radius: 10px;
+    border: 0;
+    overflow: hidden;
+    
+    .chat-board-card-info {
+      font-size: 1.2vw;
+
+      .chat-board-card-icon {
+        width: 60%;
+        margin-left: 5%;
+      }
+    }
   }
 }
 

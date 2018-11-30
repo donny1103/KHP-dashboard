@@ -17,7 +17,7 @@ const ChatBar = (props) => {
       <Input 
         className="chat-input"
         size="large"
-        value={props.Message} 
+        value={props.Message.content} 
         onChange={onKeyChange}
         onPressEnter={onPressEnter}
       />

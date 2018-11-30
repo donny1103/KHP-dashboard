@@ -18,6 +18,7 @@ class App extends Component {
       selectedPrioity:'immediatePrioity',
       selectedQueue: '',
       chattingQueue: [],
+      messages:'',
       expendChatBoard: false
     }
   }
@@ -42,17 +43,32 @@ class App extends Component {
   handleChatClick = (queueId) => {
     for(let key in this.state.queueObject){
       if (queueId === key) {
-        let selectedQueue = this.state.queueObject[key];
-        this.setState({selectedQueue:{...selectedQueue,type: 'startChat', id: key, clientName: selectedQueue.name,counsellorName: 'Dan Karres'}});
+        let selectedQueue = {
+          ...this.state.queueObject[key],
+          type: 'startChat', 
+          id: key,
+          counsellorName: 'Dan Karres'
+        }
+
+        this.setState({selectedQueue:selectedQueue});
+        this.setState({messages:{...this.state.messages,[queueId]:[]}})
         this.state.chattingQueue.push(selectedQueue);
+
+        let prioityKey = this.state.selectedPrioity;
+        let queueChanageArr = this.state[prioityKey].filter(queue => queue.id !== queueId );
+        this.setState({[prioityKey]: queueChanageArr});
+        this.socket.send(JSON.stringify(selectedQueue));
       }
     }
-    // this.socket.send(this.state.selectedQueue);
   }
 
   toggleChatBoard = () => {
     let toggle = !this.state.expendChatBoard;
     this.setState({expendChatBoard: toggle})
+  }
+
+  handleMessageSent = (id,message) => {
+    this.state.messages[id].push(message);
   }
 
   componentDidMount () {
@@ -95,7 +111,7 @@ class App extends Component {
   }
 
   render() {
-    const boardGrid = this.state.expendChatBoard ? 4 : 1; 
+    const chatBoardSpan = this.state.expendChatBoard ? 4 : 1; 
     return (
       <Row className="App">
         <Col className="navbar" xs={0} sm={0} md={4} lg={4} xl={4}>
@@ -111,11 +127,15 @@ class App extends Component {
           />
         </Col>
 
-        <Col className='chat' xs={24 - boardGrid} sm={20 - boardGrid} md={14 - boardGrid} lg={14 - boardGrid} xl={14 - boardGrid}>
-          <Chat clientName={this.state.selectedQueue ? this.state.selectedQueue.name : null}/>
+        <Col className='chat' xs={24 - chatBoardSpan} sm={20 - chatBoardSpan} md={14 - chatBoardSpan} lg={14 - chatBoardSpan} xl={14 - chatBoardSpan}>
+          <Chat 
+            selectedQueue={this.state.selectedQueue ? this.state.selectedQueue : null} 
+            Messages={this.state.messages}
+            sendMessage={this.handleMessageSent}
+          />
         </Col>
 
-        <Col className='chat-board' span={boardGrid}>
+        <Col className='chat-board' span={chatBoardSpan}>
           <ChatBoard 
             expendChatBoard={this.state.expendChatBoard} 
             toggleChatBoard={this.toggleChatBoard}
