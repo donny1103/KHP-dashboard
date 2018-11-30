@@ -1,7 +1,7 @@
 $header-height: 10%;
 $body-height: 75%;
 $footer-height: 15%;
-$header-footer: #048ED8;
+$header-footer: #08415B;
 
 .chat {
   height: 100vh;
@@ -10,11 +10,12 @@ $header-footer: #048ED8;
     height: $header-height;
     width: 100%;
     color: #F9F9F9;
-    font-size: 1rem;
+    font-size: 1.5rem;
     background-color: $header-footer;
   }
   .messages {
     display: block;
+    font-size: 0.8rem;
     padding: 3%;
     height: $body-height;
     overflow: auto;

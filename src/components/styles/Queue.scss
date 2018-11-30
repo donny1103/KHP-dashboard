@@ -1,7 +1,7 @@
 .queue {
 
   height: 100vh;
-  background-color: #08415B;
+  background-color: #BFD7EA;
   overflow: auto;
   .card {
     margin: 2% !important;
@@ -11,7 +11,7 @@
     overflow: hidden;
     
     .card-info {
-      font-size: 1.3vw;
+      font-size: 1.1vw;
       .card-icon {
         width: 60%;
         margin-left: 5%;
@@ -22,7 +22,7 @@
       font-size: 1.5vw;
     }
     .personal-info {
-      font-size: 1.3vw;
+      font-size: 1vw;
       margin: 3% 0 0 1%;
       .info-item {
         margin-bottom: 5%;
@@ -30,11 +30,6 @@
           font-family: 'HelveticaRoundedLTStd-Bd';
           color: #08415B;
         }
-      }
-      .chat-button{
-        display: flex;
-        background-color: #08415B;
-        flex-direction: row-reverse;
       }
     }
   }

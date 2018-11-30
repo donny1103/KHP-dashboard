@@ -1,12 +1,12 @@
 $header-height: 10vh;
 $footer-height: 15vh;
-$header-footer: #048ED8;
+$header-footer: #08415B;
 
 .chat-board {
   position: absolute;
   right: 0;
   height: 100vh;
-  background-color: #08415B;  // 2e5871
+  background-color: #BFD7EA;  // 2e5871
 
   .icon-container {
     background-color: #F9F9F9;
@@ -23,7 +23,7 @@ $header-footer: #048ED8;
     }
     .chatboard-icon > svg {
       height: 15vh;
-      background-color: #08415B;
+      background-color: #BFD7EA;
       border-radius: 50% 0 0 50%;
     }
 
