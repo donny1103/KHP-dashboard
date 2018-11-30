@@ -1,61 +1,58 @@
 import React, { Component } from 'react';
-import './App.scss';
 import NavBar from './components/NavBar.jsx';
 import Queue from './components/Queue.jsx';
 import Chat from './components/Chat.jsx'
-import { Row } from 'antd';
+import ChatBoard from './components/ChatBoard.jsx';
+import { Row, Col } from 'antd';
+import './App.scss';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      queueObject:'',
       immediatePrioity:[],
       highPrioity:[],
       mediumPrioity:[],
       lowPrioity:[],
-      toQueueData:'immediatePrioity',
-      clientName: '',
-      isChatStart:false,
-      selectedQueue:''
+      queueObject: '',
+      selectedPrioity:'immediatePrioity',
+      selectedQueue: '',
+      chattingQueue: [],
+      expendChatBoard: false
     }
   }
 
-  handlePrioitySelect = (val) => {
-    let toQueueData;
-    if (val === '1'){
-      toQueueData = 'immediatePrioity';
+  handlePrioitySelect = (prioity) => {
+    let selectedPrioity;
+    if (prioity === '1'){
+      selectedPrioity = 'immediatePrioity';
     }
-    else if (val === '2'){
-      toQueueData = 'highPrioity';
+    else if (prioity === '2'){
+      selectedPrioity = 'highPrioity';
     }
-    else if (val === '3'){
-      toQueueData = 'mediumPrioity';
+    else if (prioity === '3'){
+      selectedPrioity = 'mediumPrioity';
     }
-    else if (val === '4'){
-      toQueueData = 'lowPrioity';
+    else if (prioity === '4'){
+      selectedPrioity = 'lowPrioity';
     }
-    this.setState({toQueueData:toQueueData})
-  }
-
-  handlePanelSelect = (key) => {
-    for(let objKey in this.state.queueObject){
-      if (key[0] === objKey) {
-        let selectedQueue = this.state.queueObject[objKey];
-        this.setState({selectedQueue:selectedQueue});
-      }
-    }
+    this.setState({selectedPrioity:selectedPrioity})
   }
 
   handleChatClick = (queueId) => {
-    console.log(queueId)
     for(let key in this.state.queueObject){
       if (queueId === key) {
         let selectedQueue = this.state.queueObject[key];
-        this.setState({selectedQueue:{...selectedQueue,type: 'startChat', id: key, clientName: selectedQueue.name,counsellorName: 'Dan Karres'}, clientName: selectedQueue.name});
+        this.setState({selectedQueue:{...selectedQueue,type: 'startChat', id: key, clientName: selectedQueue.name,counsellorName: 'Dan Karres'}});
+        this.state.chattingQueue.push(selectedQueue);
       }
     }
     // this.socket.send(this.state.selectedQueue);
+  }
+
+  toggleChatBoard = () => {
+    let toggle = !this.state.expendChatBoard;
+    this.setState({expendChatBoard: toggle})
   }
 
   componentDidMount () {
@@ -84,6 +81,7 @@ class App extends Component {
             immediatePrioityArr.push({...queue[key], id:key})
           }
         }
+
         this.setState({
           immediatePrioity:immediatePrioityArr,
           highPrioity:highPrioityArr,
@@ -97,16 +95,33 @@ class App extends Component {
   }
 
   render() {
+    const boardGrid = this.state.expendChatBoard ? 4 : 1; 
     return (
       <Row className="App">
+        <Col className="navbar" xs={0} sm={0} md={4} lg={4} xl={4}>
           <NavBar Data={this.state} onClick={this.handlePrioitySelect}/>
+        </Col>
+
+        <Col className="queue" xs={0} sm={4} md={6} lg={6} xl={6}>
           <Queue 
             Data={this.state}
-            showDataKey={this.state.toQueueData} 
+            selectedPrioity={this.state.selectedPrioity} 
             startChat={this.handleChatClick}
             onPanelClick={this.handlePanelSelect}
           />
-          <Chat clientName={this.state.clientName}/>
+        </Col>
+
+        <Col className='chat' xs={24 - boardGrid} sm={20 - boardGrid} md={14 - boardGrid} lg={14 - boardGrid} xl={14 - boardGrid}>
+          <Chat clientName={this.state.selectedQueue ? this.state.selectedQueue.name : null}/>
+        </Col>
+
+        <Col className='chat-board' span={boardGrid}>
+          <ChatBoard 
+            expendChatBoard={this.state.expendChatBoard} 
+            toggleChatBoard={this.toggleChatBoard}
+            chattingQueue={this.state.chattingQueue}
+          />
+        </Col>  
       </Row>
     );
   }

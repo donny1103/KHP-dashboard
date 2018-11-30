@@ -30,7 +30,9 @@
   .ant-menu-vertical .ant-menu-item:after, .ant-menu-vertical-left .ant-menu-item:after, .ant-menu-vertical-right .ant-menu-item:after, .ant-menu-inline .ant-menu-item:after {
     border: 0;
   }
-    
+  .ant-menu-item-selected {
+    border-radius: .5em 0 0 .5em;
+  }  
 }
 
 

@@ -9,7 +9,7 @@ const NavBar = (props) => {
   }
   // const badgeStyle = { backgroundColor: '#0b95c8' };
   return (
-    <Col className="navbar" xs={0} sm={0} md={4} lg={4}>
+    <>
       <div className="logo">
         <img alt="logo" src="./img/khp-name.png" className="khp-logo" />
       </div>
@@ -65,7 +65,7 @@ const NavBar = (props) => {
         </Menu.Item>
 
       </Menu>
-    </Col>
+    </>
   );
 }
 

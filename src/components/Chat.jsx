@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ChatBar from './ChatBar.jsx';
 import Messages from './Messages.jsx';
-import { Col} from 'antd';
+import { Col, Row } from 'antd';
 import 'antd/dist/antd.css';
 
 class Chat extends Component {
@@ -20,16 +20,22 @@ class Chat extends Component {
   render () {
 
     return (
-      <Col className='chat' xs={24} sm={20} md={17} lg={12}>
+      <>
+        <Row type="flex" justify="center" align="middle" className="chat-header">
+          {this.props.clientName}
+        </Row>
+
         <Messages 
-        Messages={this.state.messages} 
-        clientName={this.props.clientName}
+          Messages={this.state.messages} 
+          clientName={this.props.clientName}
         />
+
         <ChatBar         
-        onKeyChange={this.handleKeyChange}
-        sendMessage={this.sendMessage}
-        Message={this.state.message}/>
-      </Col>
+          onKeyChange={this.handleKeyChange}
+          sendMessage={this.sendMessage}
+          Message={this.state.message}
+        />
+      </>
     );
   };
 }

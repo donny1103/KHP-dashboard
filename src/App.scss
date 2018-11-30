@@ -17,5 +17,16 @@
    display: block;
 }
 
+.chat-board {
+  position: absolute;
+  right: 0;
+  height: 100%;
+  background-color: #e6f7ff;
+  
+  .chatboard-icon {
+    font-size: 1.5rem;
+    margin-top: 47vh;
+  }
+}
 
 
