@@ -11,7 +11,7 @@ class Chat extends Component {
   }
 
   handleKeyChange = (text) => {
-    this.setState({input: {type: 'counsellor-message',time: moment().format('dddd, h:mm:ss a'), content: text}});
+    this.setState({input: {type: 'counsellor-message',time: moment().format('h:mm:ss a'), content: text}});
   }
 
   sendMessage = (id) => () => {

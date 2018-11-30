@@ -17,8 +17,11 @@ const Messages = (props) => {
 
         {
           props.Messages && props.Messages[props.queueId].map(message=>(
+          <div>
+            <div className='message-time'> <span>{message.time}</span></div> 
             <div className="message-bubbles-right">
               <span className="counsellor-message">{message.content}</span>
+            </div>
             </div>
           ))
         }

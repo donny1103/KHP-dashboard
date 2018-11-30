@@ -41,6 +41,17 @@ class App extends Component {
   }
 
   handleChatClick = (queueId) => {
+    let selectedQueue = this.handelQueueClick(queueId);
+    this.setState({messages:{...this.state.messages,[queueId]:[]}});
+    this.state.chattingQueue.push(selectedQueue);
+
+    let prioityKey = this.state.selectedPrioity;
+    let queueChanageArr = this.state[prioityKey].filter(queue => queue.id !== queueId );
+    this.setState({[prioityKey]: queueChanageArr});
+    this.socket.send(JSON.stringify(selectedQueue));
+  }
+
+  handelQueueClick = (queueId) => {
     for(let key in this.state.queueObject){
       if (queueId === key) {
         let selectedQueue = {
@@ -49,15 +60,10 @@ class App extends Component {
           id: key,
           counsellorName: 'Dan Karres'
         }
-
         this.setState({selectedQueue:selectedQueue});
-        this.setState({messages:{...this.state.messages,[queueId]:[]}})
-        this.state.chattingQueue.push(selectedQueue);
-
-        let prioityKey = this.state.selectedPrioity;
-        let queueChanageArr = this.state[prioityKey].filter(queue => queue.id !== queueId );
-        this.setState({[prioityKey]: queueChanageArr});
-        this.socket.send(JSON.stringify(selectedQueue));
+        return (
+          selectedQueue
+        )
       }
     }
   }
@@ -111,23 +117,23 @@ class App extends Component {
   }
 
   render() {
-    const chatBoardSpan = this.state.expendChatBoard ? 4 : 1; 
+    const chatBoardSpan = this.state.expendChatBoard ? 5 : 1; 
+    const messageSpan = this.state.expendChatBoard ? 5 : 6;
     return (
       <Row className="App">
         <Col className="navbar" xs={0} sm={0} md={4} lg={4} xl={4}>
           <NavBar Data={this.state} onClick={this.handlePrioitySelect}/>
         </Col>
 
-        <Col className="queue" xs={0} sm={4} md={6} lg={6} xl={6}>
+        <Col className="queue" xs={0} sm={4} md={6} lg={messageSpan} xl={messageSpan}>
           <Queue 
             Data={this.state}
             selectedPrioity={this.state.selectedPrioity} 
             startChat={this.handleChatClick}
-            onPanelClick={this.handlePanelSelect}
           />
         </Col>
 
-        <Col className='chat' xs={24 - chatBoardSpan} sm={20 - chatBoardSpan} md={14 - chatBoardSpan} lg={14 - chatBoardSpan} xl={14 - chatBoardSpan}>
+        <Col className='chat' xs={24 - chatBoardSpan} sm={20 - chatBoardSpan} md={20 - messageSpan - chatBoardSpan} lg={20 - messageSpan - chatBoardSpan} xl={20 - messageSpan - chatBoardSpan}>
           <Chat 
             selectedQueue={this.state.selectedQueue ? this.state.selectedQueue : null} 
             Messages={this.state.messages}
@@ -140,6 +146,7 @@ class App extends Component {
             expendChatBoard={this.state.expendChatBoard} 
             toggleChatBoard={this.toggleChatBoard}
             chattingQueue={this.state.chattingQueue}
+            onPanelClick={this.handelQueueClick}
           />
         </Col>  
       </Row>

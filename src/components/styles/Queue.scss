@@ -1,7 +1,7 @@
 .queue {
 
   height: 100vh;
-  background-color: #2e5871;
+  background-color: #08415B;
   overflow: auto;
   .card {
     margin: 2% !important;
@@ -28,13 +28,13 @@
         margin-bottom: 5%;
         .item-titles {
           font-family: 'HelveticaRoundedLTStd-Bd';
-          color: #2e5871;
+          color: #08415B;
         }
       }
       .chat-button{
         display: flex;
-        background-color: #0b95c8;
-        margin-left: auto;
+        background-color: #08415B;
+        flex-direction: row-reverse;
       }
     }
   }

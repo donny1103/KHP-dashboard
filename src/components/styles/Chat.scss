@@ -1,22 +1,21 @@
 $header-height: 10%;
 $body-height: 75%;
 $footer-height: 15%;
-$header-footer: #20aacc;
+$header-footer: #048ED8;
 
 .chat {
   height: 100vh;
-
+  background-color: #F9F9F9;
   .chat-header {
     height: $header-height;
     width: 100%;
-    color: white;
+    color: #F9F9F9;
     font-size: 1rem;
     background-color: $header-footer;
   }
   .messages {
     display: block;
     padding: 3%;
-    background-color: white;
     height: $body-height;
     overflow: auto;
 
@@ -38,7 +37,12 @@ $header-footer: #20aacc;
         padding: .5rem;
         border-radius: .75rem;
       }
-      
+    }
+    .message-time {
+      display: block;
+      text-align: center;
+      overflow: hidden;
+      white-space: nowrap; 
     }
   }
 

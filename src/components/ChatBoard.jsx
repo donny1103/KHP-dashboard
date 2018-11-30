@@ -12,32 +12,41 @@ const ChatBoard = (props) =>{
     props.toggleChatBoard();
   }
 
+  const onPanelClick = (id) => () => {
+    props.onPanelClick(id);
+  }
+
   return (
     <>
-      <Col span={4}>
-        <div><Icon className='chatboard-icon' type={props.expendChatBoard ? 'right' : 'left'} onClick={toggleChatBoard}/></div>
+      <Col span={props.expendChatBoard ? 3 : 15}>
+        <div className='icon-container'>
+          <div className='board-header'></div>
+          <Icon className='chatboard-icon' type={props.expendChatBoard ? 'right' : 'left'} onClick={toggleChatBoard}/>
+          <div className='board-footer'></div>
+        </div>
       </Col>
       { 
         props.expendChatBoard ? 
-        <Col span={20}>
+        <Col span={props.expendChatBoard ? 20 : 0}>
+          <Collapse
+            bordered={true}
+            accordion  
+            className="chat-board-card" 
+            style={{backgroundColor:'white'}}
+          >        
           {
             props.chattingQueue.length !== 0 ? props.chattingQueue.map(queue=>(
-              <Collapse 
-                bordered={true}  
-                className="chat-board-card" 
-                key={queue.id}
-                style={{backgroundColor:'white'}}
-              >
                 <Panel 
-                  header={<ChatBoardPanelHeader data={queue}/>} 
+                  header={<ChatBoardPanelHeader data={queue} onPanelClick={onPanelClick} queueId={queue.id}/>} 
                   key={queue.id}
                   showArrow={false} 
                 >
                   <ChatBoardPanelInfo data={queue}/>       
                 </Panel>
-              </Collapse>
+              
             )) : null
           }
+          </Collapse>
         </Col> 
         : null 
       }
