@@ -2,13 +2,26 @@ import React from 'react';
 import QueuePanelHeader from './QueuePanelHeader.jsx'
 import QueuePanelInfo from './QueuePanelInfo.jsx'
 import { Button, Collapse, Row } from 'antd';
+import { connect } from 'react-redux';
+import { engagedClients, activeClient } from '../redux/actions/engagedClients';
 
 const Panel = Collapse.Panel;
 
+const mapStateToProps = state => ({
+  ...state,
+  activeClient: {...state.engagedClients.activeClient}
+});
+
+const mapDispatchToProps = dispatch => ({
+  updateEngagedClients: (id, allQueue) => (dispatch(engagedClients({...allQueue[id], id:id}))),
+  updateActiveClient: (id, allQueue) => (dispatch(activeClient({...allQueue[id], id:id})))
+});
+
 const QueuePanel = (props) => {
 
-  const generateStartChatFunction = (id) => () => {
-    props.startChat(id)
+  const onStartChat = (id, allQueue) => () => {
+    props.updateEngagedClients(id, allQueue);
+    props.updateActiveClient(id, allQueue);
   }
 
   return(
@@ -28,7 +41,7 @@ const QueuePanel = (props) => {
           <Button  
             className="chat-button" 
             style={{backgroundColor: '#08415B', color: '#F9F9F9'}}
-            onClick={generateStartChatFunction(props.data.id)}>
+            onClick={onStartChat(props.data.id,props.queue.all)}>
             <b>Chat ></b>
           </Button> 
         </Row>       
@@ -37,4 +50,4 @@ const QueuePanel = (props) => {
   )
 }
 
-export default QueuePanel;
+export default connect(mapStateToProps, mapDispatchToProps)(QueuePanel);

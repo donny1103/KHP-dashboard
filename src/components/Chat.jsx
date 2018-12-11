@@ -22,9 +22,10 @@ class Chat extends Component {
   }
 
   render () {
-
-    const clientName = this.props.selectedQueue && this.props.selectedQueue.name;
-    const queueId = this.props.selectedQueue && this.props.selectedQueue.id;
+    const {activeClient} = this.props;
+    const clientName = activeClient ? activeClient.name : null;
+    const queueId = activeClient ? activeClient.id : null;
+    const messages = activeClient ? activeClient.messages : null;;
 
     return (
       <>
@@ -33,7 +34,7 @@ class Chat extends Component {
         </Row>
 
         <Messages 
-          Messages={this.props.Messages} 
+          messages={messages} 
           clientName={clientName}
           queueId={queueId}
         />
