@@ -1,0 +1,19 @@
+@import './styles/Chat.scss';
+@import './styles/NavBar.scss';
+@import './styles/Queue.scss';
+@import './styles/ChatBoard.scss';
+
+@font-face {
+    font-family: 'HelveticaRoundedLTStd-Bd';
+    src: url('./fonts/HelveticaRoundedLTStd-Bd.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+* {
+ font-family: Roboto;
+}
+
+#root {
+   display: block;
+}

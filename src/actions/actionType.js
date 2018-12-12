@@ -1,0 +1,4 @@
+export const LOW_PRIOITY = 'LOW_PRIOITY';
+export const MEDIUM_PRIOITY = 'MEDIUM_PRIOITY';
+export const HIGH_PRIOITY = 'HIGH_PRIOITY';
+export const IMMEDIATE_PRIOITY = 'IMMEDIATE_PRIOITY';

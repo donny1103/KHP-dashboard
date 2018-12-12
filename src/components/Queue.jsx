@@ -1,17 +1,17 @@
 import React from 'react';
 import QueuePanel from './QueuePanel.jsx'
 
-const Queue = (props) => {
-  let sortedData = props.data && Object.keys(props.data).length && props.data[props.activePrioity].sort((a,b)=>(b.severity-a.severity)) ;
+const Queue = ({ priority,activePriority, onStartChat }) => {
+  let sortedData = priority && Object.keys(priority).length ? priority[activePriority].sort((a,b)=>(b.severity-a.severity)) : null;
 
   return (
     <>
-      { props.data && Object.keys(props.data).length ?
+      { sortedData ?
         sortedData.map(item=>(
           <QueuePanel 
             key={item.id} 
             data={item} 
-            onPanelClick={props.onPanelClick}
+            onStartChat={onStartChat}
           />
         )) : null
       }
