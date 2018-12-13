@@ -11,22 +11,22 @@ class Chat extends Component {
   }
 
   handleKeyChange = (text) => {
-    this.setState({input: {type: 'counsellor-message',time: moment().format('h:mm:ss a'), content: text}});
+    this.setState({input: {time: moment().format('h:mm:ss a'), text}});
   }
 
-  sendMessage = (id) => () => {
-    if (this.props.selectedQueue) {
-      this.props.sendMessage(id,this.state.input);
+  sendMessage = () => {
+    let {engagingClientId} = this.props;
+    if (engagingClientId && this.state.input) {
+      this.props.sendMessage(engagingClientId, this.state.input);
     }
     this.setState({input:''})
   }
 
   render () {
-    const {activeClient} = this.props;
-    const clientName = activeClient ? activeClient.name : null;
-    const queueId = activeClient ? activeClient.id : null;
-    const messages = activeClient ? activeClient.messages : null;;
-
+    const {engagingClientId} = this.props;
+    const engagingClient = this.props.queue ? this.props.queue[engagingClientId] : null;
+    const clientName = engagingClient ? engagingClient.name : null;
+    const messages = engagingClient ? engagingClient.messages : [];
     return (
       <>
         <Row type="flex" justify="center" align="middle" className="chat-header">
@@ -36,14 +36,12 @@ class Chat extends Component {
         <Messages 
           messages={messages} 
           clientName={clientName}
-          queueId={queueId}
         />
 
         <ChatBar         
           onKeyChange={this.handleKeyChange}
-          sendMessage={this.sendMessage(queueId)}
-          Message={this.state.input}
-          queueId={queueId}
+          sendMessage={this.sendMessage}
+          message={this.state.input}
         />
       </>
     );

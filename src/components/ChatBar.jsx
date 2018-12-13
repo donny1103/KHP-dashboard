@@ -1,25 +1,14 @@
 import React from 'react';
 import { Input } from 'antd';
-const ChatBar = (props) => {
-
-  const onKeyChange = (e) => {
-    props.onKeyChange(e.target.value)
-  }
-
-  const onPressEnter = () => {
-    if (props.Message){
-      props.sendMessage();
-    }
-  }
-
+const ChatBar = ({ message, onKeyChange, sendMessage }) => {
   return (
     <div className="chatbar">
       <Input 
         className="chat-input"
         size="large"
-        value={props.Message.content} 
-        onChange={onKeyChange}
-        onPressEnter={onPressEnter}
+        value={message.text} 
+        onChange={(e)=>onKeyChange(e.target.value)}
+        onPressEnter={sendMessage}
       />
     </div>
   )

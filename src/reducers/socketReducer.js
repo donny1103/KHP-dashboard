@@ -18,13 +18,16 @@ const socketReducer = (state = initialState, action ) => {
     return {...state, connected: false};
 
     case 'SOCKET_MESSAGE':
-      return {...state, ...action.data}
+      return {...state, ...action.data};
 
     case 'INITIATE_CHAT':
-      return {...state, queue: action.data}
+      return {...state, queue: action.data};
 
     case 'REMOVE_QUEUE':
-      return {...state, priority: action.data}
+      return {...state, priority: action.data};
+
+    case 'ADD_MESSAGE':
+      return  {...state, queue: action.data};
 
     default:
       return state;

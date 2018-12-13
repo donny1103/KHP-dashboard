@@ -1,18 +1,19 @@
 import React from 'react';
+import uuidv4 from 'uuid/v4';
 
-const Messages = (props) => {
+const Messages = ({ clientName, messages }) => {
   return ( 
-    props.clientName ? 
+    clientName ? 
     (
       <div className="messages">
-        <p>You are now chatting with <b>{props.clientName}</b></p><br />
+        <p>You are now chatting with <b>{clientName}</b></p><br />
 
         {
-          props.messages && props.messages[props.queueId].map(message=>(
-          <div>
+          messages.map(message=>(
+          <div key={uuidv4()}>
             <div className='message-time'> <span>{message.time}</span></div> 
             <div className="message-bubbles-right">
-              <span className="counsellor-message">{message.content}</span>
+              <span className="counsellor-message">{message.text}</span>
             </div>
             </div>
           ))

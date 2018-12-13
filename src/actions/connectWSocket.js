@@ -20,6 +20,13 @@ const socketMessage = data => ({
   data
 });
 
+const injectId = (queue) => {
+  for (let key in queue) {
+    queue[key].id = key;
+  }
+  return queue;
+}
+
 const categorizePriority = (queue) => {
   const severities = {
     lowPriority: [1,25],
@@ -61,7 +68,6 @@ const categorizePriority = (queue) => {
   }
 }
 
-
 export const initializeSocket = () => dispatch => {
 
   const socket = new WebSocket('ws://localhost:3001');
@@ -77,7 +83,7 @@ export const initializeSocket = () => dispatch => {
 
   socket.onmessage = json => {
     let parsedJson = JSON.parse(json.data);
-    let { queue } = parsedJson;
+    let queue = injectId(parsedJson.queue);
     let priority = categorizePriority(queue);
     dispatch(socketMessage({queue,priority}));
   };

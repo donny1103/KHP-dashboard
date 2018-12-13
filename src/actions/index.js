@@ -1,4 +1,4 @@
-export const activePriority = prioity => ({
+export const setActivePriority = prioity => ({
   type: 'ACTIVE_PRIORITY',
   payload: prioity
 });
@@ -8,18 +8,12 @@ export const toggleChatBoard = bool => ({
   bool
 });
 
-export const sendMessage = message => ({
-  type: 'SEND_MESSAGE',
-  payload: message
-});
-
 export const initiateChat = (id) => (dispatch, getState) => {
-  let {queue} = getState().socket;
-  let newQueue = {...queue};
-  newQueue[id].messages = [];
+  let queue = {...getState().socket.queue};
+  queue[id].messages = [];
   dispatch({
     type:'INITIATE_CHAT',
-    data: newQueue
+    data: queue
   })
 }
 
@@ -35,3 +29,28 @@ export const removeQueue = (id) => (dispatch, getState) => {
     data: newPriority
   })
 }
+
+export const setEngagingClientId = (id) => dispatch => {
+  dispatch({
+    type: 'ENGAGING_CLIENT_ID',
+    payload: id
+  })
+}
+
+export const setEngagedClientsId = (id) => dispatch => {
+  dispatch({
+    type: 'ENGAGED_CLIENTS_ID',
+    payload: id
+  })
+}
+
+export const sendMessage = (id, message) => (dispatch, getState) => {
+  let queue = {...getState().socket.queue};
+  queue[id].messages = [...queue[id].messages, message]
+  dispatch({
+    type: 'ADD_MESSAGE',
+    data: queue
+  })
+};
+
+

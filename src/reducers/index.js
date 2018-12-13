@@ -4,27 +4,27 @@ import socketReducer from './socketReducer';
 const toggleChatBoard = (state = false, action) => {
   switch (action.type){
     case 'TOGGLE_CHAT_BOARD':
-      return {...state, ...action.bool};
+      return action.bool;
     default:
       return state;
   }
 }
 
-const engagedClientsInitialState = {
-  engagedClients:[ ],
-  activeClient: {messages:[]}
-};
-
-const engagedClients = ( state = engagedClientsInitialState, action) => {
+const engagingClientId = (state = '', action) => {
   switch (action.type){
-    case 'ENGAGED_CLIENTS':
-      return {engagedClients: [...state.engagedClients, action.payload] };
-    case 'ACTIVE_CLIENT':
-      return {activeClient: action.payload};
-    case 'SEND_MESSAGE':
-      return {activeClient: { messages:[...state.activeClient.messages, action.payload]}}
+    case 'ENGAGING_CLIENT_ID':
+      return action.payload;
     default:
-    return state;
+      return state;
+  }
+}
+
+const engagedClientsId = (state = [], action) => {
+  switch (action.type){
+    case 'ENGAGED_CLIENTS_ID':
+      return [...state, action.payload];
+    default:
+      return state;
   }
 }
 
@@ -41,4 +41,6 @@ export default combineReducers({
   socket: socketReducer,
   isChatBoardShown: toggleChatBoard,
   activePriority,
+  engagingClientId,
+  engagedClientsId,
  });
