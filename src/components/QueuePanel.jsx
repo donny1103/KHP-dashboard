@@ -5,26 +5,37 @@ import { Button, Collapse, Row } from 'antd';
 
 const Panel = Collapse.Panel;
 
-const QueuePanel = ({ data, onStartChat }) => {
+const QueuePanel = ({ client, onStartChat, ws }) => {
+
+  const onClick = (id) => () => {
+    onStartChat(id);
+    ws.send(JSON.stringify(
+      {
+        type:'startChat',
+        id,
+        counsellorName: 'Dan Karres',
+      }
+    ));
+  };
 
   return(
     <Collapse 
       bordered={true}  
-      className="card" key={data.id}
+      className="card" key={client.id}
       style={{backgroundColor:'white'}}
     >
       <Panel 
-        header={<QueuePanelHeader data={data}/>} 
-        key={data.id}
+        header={<QueuePanelHeader client={client}/>} 
+        key={client.id}
         showArrow={false} 
       >
-        <QueuePanelInfo data={data}/>
+        <QueuePanelInfo client={client}/>
 
         <Row type='flex' justify='end'>
           <Button  
             className="chat-button" 
             style={{backgroundColor: '#08415B', color: '#F9F9F9'}}
-            onClick={()=>onStartChat(data.id)}
+            onClick={onClick(client.id)}
           >
             <b>Chat ></b>
           </Button> 

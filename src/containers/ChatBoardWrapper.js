@@ -7,6 +7,7 @@ const mapState = state => {
   let engagedClients = state.engagedClientsId.map(id => queue[id]);
   return{
     engagedClients,
+    engagingClientId: state.engagingClientId,
     isChatBoardShown: state.isChatBoardShown
   }
 }

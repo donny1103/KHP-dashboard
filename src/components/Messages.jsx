@@ -3,7 +3,7 @@ import uuidv4 from 'uuid/v4';
 
 const Messages = ({ clientName, messages }) => {
   return ( 
-    clientName ? 
+    clientName && messages ? 
     (
       <div className="messages">
         <p>You are now chatting with <b>{clientName}</b></p><br />

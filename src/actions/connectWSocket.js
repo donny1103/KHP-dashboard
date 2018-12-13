@@ -72,7 +72,6 @@ export const initializeSocket = () => dispatch => {
 
   const socket = new WebSocket('ws://localhost:3001');
   dispatch(socketConnectionInit(socket));
-
   socket.onopen = () => {
     dispatch(socketConnectionSuccess());  
   };
@@ -83,9 +82,16 @@ export const initializeSocket = () => dispatch => {
 
   socket.onmessage = json => {
     let parsedJson = JSON.parse(json.data);
-    let queue = injectId(parsedJson.queue);
-    let priority = categorizePriority(queue);
-    dispatch(socketMessage({queue,priority}));
+    switch (parsedJson.type){
+      case 'queue':
+        let queue = injectId(parsedJson.queue);
+        let priority = categorizePriority(queue);
+        dispatch(socketMessage({queue,priority}));
+        break;
+      default:
+        break;
+    }
+
   };
 
   socket.onclose = () => {

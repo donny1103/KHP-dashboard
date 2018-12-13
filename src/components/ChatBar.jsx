@@ -1,14 +1,25 @@
 import React from 'react';
-import { Input } from 'antd';
-const ChatBar = ({ message, onKeyChange, sendMessage }) => {
+import moment from 'moment';
+
+const ChatBar = ({ sendMessage, clientId }) => {
+  let input;
+
+  const onPressEnter = (e) => {
+    if (e.key === 'Enter') {
+      if(clientId && input.value){
+        sendMessage(clientId, {time: moment().format('h:mm:ss a'), text:input.value});
+      }
+      input.value = '';
+    }
+  }
+
   return (
     <div className="chatbar">
-      <Input 
+      <input 
         className="chat-input"
         size="large"
-        value={message.text} 
-        onChange={(e)=>onKeyChange(e.target.value)}
-        onPressEnter={sendMessage}
+        ref={node => input = node}
+        onKeyPress={onPressEnter}
       />
     </div>
   )

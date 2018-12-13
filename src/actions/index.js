@@ -52,5 +52,3 @@ export const sendMessage = (id, message) => (dispatch, getState) => {
     data: queue
   })
 };
-
-

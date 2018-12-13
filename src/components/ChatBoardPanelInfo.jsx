@@ -1,5 +1,6 @@
 import React from 'react';
 import { Col, Row, Progress } from 'antd';
+import uuidv4 from 'uuid/v4';
 
 const ChatBoardPanelInfo = ({ client }) => (
   <Row className="personal-info">
@@ -68,7 +69,7 @@ const ChatBoardPanelInfo = ({ client }) => (
     <ul>
       {
         client.careAbout && client.careAbout.map(person=>(
-          <li>{person}</li>
+          <li key={uuidv4()}>{person}</li>
         ))
       }
     </ul>

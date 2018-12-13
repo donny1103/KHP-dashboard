@@ -2,9 +2,11 @@ import { connect } from 'react-redux';
 import Queue from '../components/Queue';
 import { initiateChat, removeQueue, setEngagingClientId, setEngagedClientsId } from '../actions/';
 
+
 const mapState = state => ({
   priority: state.socket.priority,
-  activePriority: state.activePriority, 
+  activePriority: state.activePriority,
+  ws: state.socket.ws 
 });
 
 const mapDispatch = dispatch => ({
