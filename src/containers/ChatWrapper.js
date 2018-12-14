@@ -4,8 +4,9 @@ import { sendMessage } from '../actions/'
 
 const mapState = state => ({
   queue: state.socket.queue,
-  engagingClientId: state.engagingClientId
-})
+  engagingClientId: state.engagingClientId,
+  socket:state.socket.ws
+});
 
 const mapDispatch = dispatch => ({
   sendMessage: (id, message) => dispatch(sendMessage(id, message))

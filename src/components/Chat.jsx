@@ -4,7 +4,7 @@ import Messages from './Messages.jsx';
 import { Row } from 'antd';
 import 'antd/dist/antd.css';
 
-const Chat = ( {engagingClientId, queue, sendMessage } ) => {
+const Chat = ( {engagingClientId, queue, sendMessage, socket } ) => {
 
     const engagingClient = queue ? queue[engagingClientId] : null;
     const clientName = engagingClient ? engagingClient.name : null;
@@ -23,6 +23,7 @@ const Chat = ( {engagingClientId, queue, sendMessage } ) => {
         <ChatBar         
           sendMessage={sendMessage}
           clientId={engagingClientId}
+          socket={socket}
         />
       </>
     );
