@@ -1,6 +1,6 @@
 import React from 'react';
 
-const NavbarCounselorInfo = () => (
+const NavbarCounsellorInfo = () => (
   <>
     <div className="logo">
       <img alt="logo" src="./img/khp-name.png" className="khp-logo" />
@@ -16,5 +16,5 @@ const NavbarCounselorInfo = () => (
   </>
 );
 
-export default NavbarCounselorInfo;
+export default NavbarCounsellorInfo;
 

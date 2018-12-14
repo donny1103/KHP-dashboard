@@ -1,12 +1,12 @@
 import React from 'react';
-import { Icon, Col, Collapse } from 'antd';
+import { Icon, Col, Collapse, Row, Button } from 'antd';
 import ChatBoardPanelHeader from './ChatBoardPanelHeader.jsx'
 import ChatBoardPanelInfo from './ChatBoardPanelInfo.jsx'
 import 'antd/dist/antd.css';
 
 const Panel = Collapse.Panel;
 
-const ChatBoard = ({ isChatBoardShown, engagedClients, toggleChatBoard, onPanelClick, engagingClientId }) =>{
+const ChatBoard = ({ isChatBoardShown, engagedClients, toggleChatBoard, onPanelClick, engagingClientId, disconnectId }) =>{
   return (
     <>
       <Col span={isChatBoardShown ? 3 : 15}>
@@ -28,11 +28,28 @@ const ChatBoard = ({ isChatBoardShown, engagedClients, toggleChatBoard, onPanelC
           {
             engagedClients.length !== 0 ? engagedClients.map(client => (
                 <Panel 
-                  header={<ChatBoardPanelHeader client={client} onPanelClick={onPanelClick} engagingClientId={engagingClientId}/>} 
+                  header={
+                    <ChatBoardPanelHeader 
+                      client={client} 
+                      onPanelClick={onPanelClick}
+                      engagingClientId={engagingClientId}
+                      disconnectId={disconnectId}
+                    />
+                  } 
                   key={client.id}
                   showArrow={false} 
                 >
-                  <ChatBoardPanelInfo client={client} />       
+                  <ChatBoardPanelInfo client={client} disconnectId={disconnectId} /> 
+                  { disconnectId === client.id &&
+                    <Row type='flex' justify='end'>
+                      <Button  
+                      className="chat-button" 
+                      style={{backgroundColor: '#08415B', color: '#F9F9F9'}}
+                      >
+                      <b>Archive</b>
+                      </Button> 
+                    </Row>
+                  }      
                 </Panel>
               
             )) : null

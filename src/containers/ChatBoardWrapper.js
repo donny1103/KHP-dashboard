@@ -8,7 +8,8 @@ const mapState = state => {
   return{
     engagedClients,
     engagingClientId: state.engagingClientId,
-    isChatBoardShown: state.isChatBoardShown
+    isChatBoardShown: state.isChatBoardShown,
+    disconnectId: state.socket.disconnectId
   }
 }
 

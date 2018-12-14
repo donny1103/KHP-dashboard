@@ -5,15 +5,15 @@ import { Button, Collapse, Row } from 'antd';
 
 const Panel = Collapse.Panel;
 
-const QueuePanel = ({ client, onStartChat, ws }) => {
+const QueuePanel = ({ client, onStartChat, ws, counsellorId }) => {
 
   const onClick = (id) => () => {
     onStartChat(id);
     ws.send(JSON.stringify(
       {
         type:'startChat',
-        id,
-        counsellorName: 'Dan Karres',
+        userId:id,
+        counsellor:{name: 'Dan Karres', id: counsellorId},
       }
     ));
   };

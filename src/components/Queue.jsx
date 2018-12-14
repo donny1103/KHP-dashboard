@@ -1,7 +1,7 @@
 import React from 'react';
 import QueuePanel from './QueuePanel.jsx'
 
-const Queue = ({ priority,activePriority, onStartChat, ws }) => {
+const Queue = ({ priority,activePriority, onStartChat, ws, counsellorId }) => {
   let sortedData = priority && Object.keys(priority).length ? priority[activePriority].sort((a,b)=>(b.severity-a.severity)) : null;
 
   return (
@@ -13,6 +13,7 @@ const Queue = ({ priority,activePriority, onStartChat, ws }) => {
             client={client} 
             onStartChat={onStartChat}
             ws={ws}
+            counsellorId={counsellorId}
           />
         )) : null
       }

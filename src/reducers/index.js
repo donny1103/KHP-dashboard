@@ -36,7 +36,16 @@ const activePriority = (state = 'immediate', action) => {
   }
 }
 
-const socketReducer = (state = { connected: false, queue: {}, priority: {} }, action) => {
+let socketInitialState = { 
+  connected: false, 
+  queue: {}, 
+  priority: {}, 
+  id:'',
+  disconnectId:'',
+  receivedMessage:{}
+};
+
+const socketReducer = (state = socketInitialState, action) => {
   switch (action.type) {
     case 'SOCKET_CONNECTION_INIT':
       return {...state, ws: action.socket};
@@ -48,10 +57,16 @@ const socketReducer = (state = { connected: false, queue: {}, priority: {} }, ac
       return {...state, connected: false};
 
     case 'SOCKET_CONNECTION_CLOSED':
-    return {...state, connected: false};
+      return {...state, connected: false};
+
+    case 'COUNSELLOR_ID': 
+      return {...state, id: action.id};
 
     case 'SOCKET_MESSAGE':
       return {...state, queue: {...state.queue, ...action.data.queue}, priority: action.data.priority};
+    
+    case 'DISCONNECTED_CLIENT':
+      return {...state, disconnectId: action.id};
 
     case 'INITIATE_CHAT':
       return {...state, queue: action.data};

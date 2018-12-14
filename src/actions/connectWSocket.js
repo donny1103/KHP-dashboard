@@ -1,3 +1,5 @@
+import { sendMessage } from '../actions/';
+
 const socketConnectionInit = socket => ({
   type: 'SOCKET_CONNECTION_INIT',
   socket
@@ -19,6 +21,16 @@ const socketMessage = data => ({
   type: 'SOCKET_MESSAGE',
   data
 });
+
+const setCounsellorId = id => ({
+  type: 'COUNSELLOR_ID',
+  id
+});
+
+const setDisconnectedClient = id => ({
+  type: 'DISCONNECTED_CLIENT',
+  id
+})
 
 const injectId = (queue) => {
   for (let key in queue) {
@@ -73,6 +85,7 @@ export const initializeSocket = () => dispatch => {
   const socket = new WebSocket('ws://localhost:3001');
   dispatch(socketConnectionInit(socket));
   socket.onopen = () => {
+    socket.send(JSON.stringify({type:'counsellor'}))
     dispatch(socketConnectionSuccess());  
   };
   
@@ -82,16 +95,25 @@ export const initializeSocket = () => dispatch => {
 
   socket.onmessage = json => {
     let parsedJson = JSON.parse(json.data);
-    switch (parsedJson.type){
+    console.log(parsedJson)
+    switch(parsedJson.type){
       case 'queue':
         let queue = injectId(parsedJson.queue);
         let priority = categorizePriority(queue);
         dispatch(socketMessage({queue,priority}));
         break;
-      default:
+      case 'id':
+        dispatch(setCounsellorId(parsedJson.id));
         break;
+      case 'disconnect':
+        dispatch(setDisconnectedClient(parsedJson.id));
+        break;
+      case 'toCounsellorMsg':
+        dispatch(sendMessage(parsedJson.userId, parsedJson));
+        break;
+      default:
+        console.log('Error: Unregonized message type:', parsedJson.type)
     }
-
   };
 
   socket.onclose = () => {

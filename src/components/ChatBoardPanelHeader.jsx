@@ -1,8 +1,19 @@
 import React from 'react';
 import { Row, Col } from 'antd'; 
 
-const ChatBoardPanelHeader = ({ client, onPanelClick, engagingClientId }) => {
-  const style = engagingClientId === client.id ? {backgroundColor:'#8EDC9D'} : {backgroundColor:'white'};
+const ChatBoardPanelHeader = ({ client, onPanelClick, engagingClientId, disconnectId }) => {
+  let style;
+
+  if(engagingClientId === client.id){
+    style = {backgroundColor:'#8EDC9D'}
+  } else {
+    style = {backgroundColor:'white'};
+  }
+
+  if (disconnectId === client.id){
+    style = {backgroundColor:'grey'};
+  } 
+
   return (
     <Row 
       type="flex" 

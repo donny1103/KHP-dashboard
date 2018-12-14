@@ -7,16 +7,16 @@ const ChatBar = ({ sendMessage, clientId, socket, wsId }) => {
   const onPressEnter = (e) => {
     if (e.key === 'Enter') {
       if(clientId && input.value){
-        let msgTime = moment().format('h:mm:ss a');
-        sendMessage(clientId, {time: msgTime, text:input.value});
-
-        let msgToSend = {
+        let counsellorMsg = {
           type:'toUserMsg',
-          userId: wsId,
+          counselerId: wsId,
+          userId: clientId,
           text: input.value,
-          time: msgTime
+          time: moment().format('h:mm:ss a')
         }
-        socket.send(JSON.stringify(msgToSend));
+
+        sendMessage(clientId, counsellorMsg);
+        socket.send(JSON.stringify(counsellorMsg));
       }
       input.value = '';
     }

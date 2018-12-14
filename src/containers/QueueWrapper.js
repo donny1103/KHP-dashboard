@@ -6,7 +6,8 @@ import { initiateChat, removeQueue, setEngagingClientId, setEngagedClientsId } f
 const mapState = state => ({
   priority: state.socket.priority,
   activePriority: state.activePriority,
-  ws: state.socket.ws 
+  ws: state.socket.ws,
+  counsellorId: state.socket.id 
 });
 
 const mapDispatch = dispatch => ({

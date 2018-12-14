@@ -1,13 +1,13 @@
 import React from 'react';
 import { Badge, Menu, Col, Row } from 'antd';
-import NavbarCounselorInfo from './NavbarCounselorInfo';
+import NavbarCounsellorInfo from './NavbarCounsellorInfo';
 
 
 const Navbar = ({ priority, onClick }) => {
 
   return (
     <>
-      <NavbarCounselorInfo />
+      <NavbarCounsellorInfo />
       <Menu mode="inline" defaultSelectedKeys={['immediate']} >
 
           <Menu.Item key="immediate" onClick={onClick}>
@@ -15,7 +15,7 @@ const Navbar = ({ priority, onClick }) => {
               <Col xs={0} sm={0} md={{span:10, push:2}} lg={6} xl={6}><strong style={{color:"#D23827FF"}}>1st</strong></Col>  
               <Col xs={0} sm={0} md={0} lg={10} xl={10}>Priority</Col>
               <Col xs={0} sm={0} md={4} lg={8} xl={8}>
-                <Badge count={Object.keys(priority).length && priority.immediate.length ? priority.immediate.length : null} /> 
+                <Badge count={priority && Object.keys(priority).length && priority.immediate.length ? priority.immediate.length : null} /> 
               </Col>
             </Row>
         </Menu.Item>
@@ -25,7 +25,7 @@ const Navbar = ({ priority, onClick }) => {
             <Col xs={0} sm={0} md={{span:10, push:2}} lg={6} xl={6}><strong style={{color:"#D37B2CFF"}}>2nd</strong></Col>  
             <Col xs={0} sm={0} md={0} lg={10} xl={10}>Priority</Col>
             <Col xs={0} sm={0} md={4} lg={8} xl={8}>
-              <Badge count={Object.keys(priority).length && priority.high.length ? priority.high.length : null} />
+              <Badge count={priority && Object.keys(priority).length && priority.high.length ? priority.high.length : null} />
             </Col>
           </Row>
         </Menu.Item>
@@ -35,7 +35,7 @@ const Navbar = ({ priority, onClick }) => {
             <Col xs={0} sm={0} md={{span:10, push:2}} lg={6} xl={6}><strong style={{color:"#CBA745FF"}}>3rd</strong></Col>  
             <Col xs={0} sm={0} md={0} lg={10} xl={10}>Priority</Col>
             <Col xs={0} sm={0} md={4} lg={8} xl={8}>
-             <Badge count={Object.keys(priority).length && priority.medium.length ? priority.medium.length : null} />
+             <Badge count={priority && Object.keys(priority).length && priority.medium.length ? priority.medium.length : null} />
             </Col>
           </Row>
         </Menu.Item>
@@ -45,7 +45,7 @@ const Navbar = ({ priority, onClick }) => {
             <Col xs={0} sm={0} md={{span:10, push:2}} lg={6} xl={6}><strong style={{color:"#55AF39FF"}}>4th</strong></Col>  
             <Col xs={0} sm={0} md={0} lg={10} xl={10}>Priority</Col>
             <Col xs={0} sm={0} md={4} lg={8} xl={8}>
-             <Badge count={Object.keys(priority).length && priority.low.length ? priority.low.length : null} />  
+             <Badge count={priority && Object.keys(priority).length && priority.low.length ? priority.low.length : null} />  
             </Col>
           </Row>            
         </Menu.Item>
