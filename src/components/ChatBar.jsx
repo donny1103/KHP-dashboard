@@ -1,7 +1,7 @@
 import React from 'react';
 import moment from 'moment';
 
-const ChatBar = ({ sendMessage, clientId, socket }) => {
+const ChatBar = ({ sendMessage, clientId, socket, wsId }) => {
   let input;
 
   const onPressEnter = (e) => {
@@ -12,11 +12,11 @@ const ChatBar = ({ sendMessage, clientId, socket }) => {
 
         let msgToSend = {
           type:'toUserMsg',
-          userId: clientId,
+          userId: wsId,
           text: input.value,
           time: msgTime
         }
-        socket.send(JSON.parse(msgToSend));
+        socket.send(JSON.stringify(msgToSend));
       }
       input.value = '';
     }
