@@ -13,6 +13,10 @@ $message-background-color : #E3E4E5;
     color: black;
     font-size: 1.5rem;
     background-color: $header;
+    padding-left: 40px;
+    img {
+      height: 100%;
+    }
   }
   .messages {
     display: block;
@@ -27,6 +31,7 @@ $message-background-color : #E3E4E5;
         background-color: white;
         padding: .5rem;
         border-radius: 5px;
+        margin-bottom: 20px;
       }
     }
     .message-bubbles-right {
@@ -38,13 +43,15 @@ $message-background-color : #E3E4E5;
         color: #fff;
         padding: .5rem;
         border-radius: 5px;
+        margin-bottom: 20px;
       }
     }
     .message-time {
       display: block;
       text-align: center;
       overflow: hidden;
-      white-space: nowrap; 
+      white-space: nowrap;
+      margin-bottom: 10px;
     }
   }
 

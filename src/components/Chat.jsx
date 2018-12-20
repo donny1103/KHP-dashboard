@@ -9,10 +9,12 @@ const Chat = ( {engagingClientId, queue, sendMessage, socket, wsId } ) => {
     const engagingClient = queue ? queue[engagingClientId] : null;
     const clientName = engagingClient ? engagingClient.name : null;
     const messages = engagingClient ? engagingClient.messages : [];
-
     return (
       <>
-        <Row type="flex" justify="center" align="middle" className="chat-header">
+        <Row type="flex" align="middle" className="chat-header">
+            {/* {
+              engagingClient ? <img alt="gender" src={engagingClient.gender ? `./img/${engagingClient.gender}.png` : `./img/question.png`} className="chat-board-card-icon" /> : null
+            } */}
           {clientName}
         </Row>
 

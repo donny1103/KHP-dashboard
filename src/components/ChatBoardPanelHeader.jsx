@@ -24,8 +24,11 @@ const ChatBoardPanelHeader = ({ client, onPanelClick, engagingClientId, disconne
       onClick={() => onPanelClick(client.id)}
     >
       <Col span={12}>
-        {client.gender ? <img alt="gender" src={`./img/${client.gender}.png`} className="chat-board-card-icon" /> :
-          <img alt="gender" src={`./img/question.png`} className="chat-board-card-icon" />}
+        {/* {client.gender ? <img alt="gender" src={`./img/${client.gender}.png`} className="chat-board-card-icon" /> :
+          <img alt="gender" src={`./img/question.png`} className="chat-board-card-icon" />} */}
+        {
+          <img alt="gender" src={client.gender ? `./img/${client.gender}.png` : `./img/question.png`} className="chat-board-card-icon" />
+        }
       </Col>
       <Col span={12}>
         {client.name}
