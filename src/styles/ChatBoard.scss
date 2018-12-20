@@ -1,33 +1,34 @@
 $header-height: 10vh;
 $footer-height: 15vh;
-$header-footer: #08415B;
+$header: #FFFFFF;
+$footer: #E3E4E5;
 
 .chat-board {
   position: absolute;
   right: 0;
   height: 100vh;
-  background-color: #BFD7EA;  // 2e5871
+  background-color: #08415B;  // 2e5871
 
   .ant-collapse > .ant-collapse-item.ant-collapse-no-arrow > .ant-collapse-header {
     padding: 0;
   }
   
   .icon-container {
-    background-color: #F9F9F9;
+    background-color: #E3E4E5;
     .board-header{
       height: $header-height;
       width: 100%;
-      background-color: $header-footer;
+      background-color: $header;
     }
 
     .chatboard-icon {
       height: 90vh;
       font-size: 2.6vw;
-      color: #F9F9F9;
+      color: #E3E4E5;
     }
     .chatboard-icon > svg {
       height: 15vh;
-      background-color: #BFD7EA;
+      background-color: #08415B;
       border-radius: 50% 0 0 50%;
     }
 
@@ -36,7 +37,7 @@ $header-footer: #08415B;
       bottom:0; 
       height: $footer-height;
       width: 100%;
-      background-color: $header-footer;
+      background-color: $footer;
     }
 
   }

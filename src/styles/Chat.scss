@@ -1,17 +1,18 @@
 $header-height: 10%;
 $body-height: 75%;
 $footer-height: 15%;
-$header-footer: #08415B;
+$header: #FFFFFF;
+$message-background-color : #E3E4E5;
 
 .chat {
   height: 100vh;
-  background-color: #F9F9F9;
+  background-color: $message-background-color;
   .chat-header {
     height: $header-height;
     width: 100%;
-    color: #F9F9F9;
+    color: black;
     font-size: 1.5rem;
-    background-color: $header-footer;
+    background-color: $header;
   }
   .messages {
     display: block;
@@ -23,9 +24,9 @@ $header-footer: #08415B;
     .message-bubbles-left {
       display: flex;
       .client-message {
-        background-color: #eee;
+        background-color: white;
         padding: .5rem;
-        border-radius: .75rem;
+        border-radius: 5px;
       }
     }
     .message-bubbles-right {
@@ -36,7 +37,7 @@ $header-footer: #08415B;
         background-color: #0b95c8;
         color: #fff;
         padding: .5rem;
-        border-radius: .75rem;
+        border-radius: 5px;
       }
     }
     .message-time {
@@ -52,13 +53,18 @@ $header-footer: #08415B;
     bottom:0; 
     width: 100%;
     height: $footer-height;
-    background-color: $header-footer;
+    background-color: $message-background-color;
     .chat-input {
       position: relative;
-      left: 10%;
-      top: 31%;
+      
+    }
+    input {
+      top: 50%;
       width: 80%;
-      height: 45%; 
+      height: 40%;
+      border: 0;
+      left: 30px;
+      border-radius: 4px;
     }
   }
 }
