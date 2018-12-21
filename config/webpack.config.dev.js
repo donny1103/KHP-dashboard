@@ -340,6 +340,22 @@ module.exports = {
           },
         ],
       },
+
+      {
+        test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+        use: [
+          {
+            loader: 'babel-loader',
+          },
+          {
+            loader: '@svgr/webpack',
+            options: {
+              babel: false,
+              icon: true,
+            },
+          },
+        ],
+      },
       // ** STOP ** Are you adding a new loader?
       // Make sure to add the new loader(s) before the "file" loader.
     ],

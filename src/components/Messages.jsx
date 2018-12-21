@@ -10,7 +10,7 @@ const Messages = ({ clientName, messages }) => {
         {
           messages.map(message=>(
           <div key={uuidv4()}>
-            <div className='message-time'> <span>{message.time}</span></div> 
+            <div className={message.type==='toCounsellorMsg' ? 'message-time-left' : 'message-time-right'}> <span className='message-name'>{message.type==='toCounsellorMsg' ? clientName : 'Dan Karres'}</span> <span>{message.time}</span> </div> 
             <div className={message.type==='toCounsellorMsg' ? 'message-bubbles-left' : "message-bubbles-right"}>
               <span className={ message.type==='toCounsellorMsg' ? 'client-message' : "counsellor-message"}>{message.text}</span>
             </div>

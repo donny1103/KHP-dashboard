@@ -1,5 +1,6 @@
 import React from 'react';
 import moment from 'moment';
+import { Icon } from 'antd';
 
 const ChatBar = ({ sendMessage, clientId, socket, wsId }) => {
   let input;
@@ -24,12 +25,15 @@ const ChatBar = ({ sendMessage, clientId, socket, wsId }) => {
 
   return (
     <div className="chatbar">
-      <input 
-        className="chat-input"
-        size="large"
-        ref={node => input = node}
-        onKeyPress={onPressEnter}
-      />
+        <input 
+          className="chat-input"
+          ref={node => input = node}
+          onKeyPress={onPressEnter}
+        />
+      <div className="chatbar-icon">
+        <Icon type="smile" />
+        <Icon type="plus-circle" />
+      </div>
     </div>
   )
 };

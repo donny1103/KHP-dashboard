@@ -1,7 +1,5 @@
-$header-height: 10vh;
-$footer-height: 15vh;
+$icon-height: 8vh;
 $header: #FFFFFF;
-$footer: #E3E4E5;
 
 .chat-board {
   position: absolute;
@@ -15,31 +13,22 @@ $footer: #E3E4E5;
   
   .icon-container {
     background-color: #E3E4E5;
-    .board-header{
-      height: $header-height;
-      width: 100%;
-      background-color: $header;
-    }
 
-    .chatboard-icon {
-      height: 90vh;
-      font-size: 2.6vw;
-      color: #E3E4E5;
+    .icon-background{
+      height: 100vh;
+      .chatboard-icon {
+        height: $icon-height;
+        font-size: 2.6vw;
+        color: #E3E4E5;
+        background-color: white;
+  
+        svg {
+          height: $icon-height;
+          background-color: #08415B;
+          border-radius: 40% 0 0 40%;
+        }
+      }
     }
-    .chatboard-icon > svg {
-      height: 15vh;
-      background-color: #08415B;
-      border-radius: 50% 0 0 50%;
-    }
-
-    .board-footer{
-      position: absolute;
-      bottom:0; 
-      height: $footer-height;
-      width: 100%;
-      background-color: $footer;
-    }
-
   }
 
   .chat-board-card {

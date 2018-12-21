@@ -11,9 +11,9 @@ const ChatBoard = ({ isChatBoardShown, engagedClients, toggleChatBoard, onPanelC
     <>
       <Col span={isChatBoardShown ? 3 : 15}>
         <div className='icon-container'>
-          <div className='board-header'></div>
-          <Icon className='chatboard-icon' type={isChatBoardShown ? 'right' : 'left'} onClick={()=>toggleChatBoard(!isChatBoardShown)}/>
-          <div className='board-footer'></div>
+          <div className='icon-background'>
+            <Icon className='chatboard-icon' type={isChatBoardShown ? 'right' : 'left'} onClick={()=>toggleChatBoard(!isChatBoardShown)}/>
+          </div>
         </div>
       </Col>
       { 

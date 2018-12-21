@@ -16,6 +16,7 @@ const Chat = ( {engagingClientId, queue, sendMessage, socket, wsId } ) => {
               engagingClient ? <img alt="gender" src={engagingClient.gender ? `./img/${engagingClient.gender}.png` : `./img/question.png`} className="chat-board-card-icon" /> : null
             } */}
           {clientName}
+          
         </Row>
 
         <Messages 

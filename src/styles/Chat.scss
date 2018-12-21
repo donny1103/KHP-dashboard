@@ -1,6 +1,6 @@
-$header-height: 10%;
-$body-height: 75%;
-$footer-height: 15%;
+$header-height: 8vh;
+$body-height: 85vh;
+$footer-height: 7vh;
 $header: #FFFFFF;
 $message-background-color : #E3E4E5;
 
@@ -46,32 +46,45 @@ $message-background-color : #E3E4E5;
         margin-bottom: 20px;
       }
     }
-    .message-time {
-      display: block;
-      text-align: center;
-      overflow: hidden;
-      white-space: nowrap;
+    .message-time-left {
+      display: flex;
       margin-bottom: 10px;
+      .message-name{
+        margin-right: 20px;
+      }
     }
+    .message-time-right {
+      display: flex;
+      flex-direction: row-reverse;
+      margin-bottom: 10px;
+      .message-name{
+        margin-left: 20px;
+      }
+    }
+
   }
 
   .chatbar {
     position: absolute;
+    display: flex;
+    align-self: center;
     bottom:0; 
     width: 100%;
     height: $footer-height;
     background-color: $message-background-color;
-    .chat-input {
-      position: relative;
-      
-    }
     input {
-      top: 50%;
       width: 80%;
-      height: 40%;
+      height: 42px;
       border: 0;
-      left: 30px;
       border-radius: 4px;
+      font-size: 1.3rem;
+      margin-left: 10px;
+    }
+    .chatbar-icon{
+      font-size: 30px;
+      i {
+        margin-left: 10px;
+      }
     }
   }
 }
