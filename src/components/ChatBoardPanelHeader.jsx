@@ -1,7 +1,7 @@
 import React from 'react';
 import { Row, Col } from 'antd'; 
 
-const ChatBoardPanelHeader = ({ client, onPanelClick, engagingClientId, disconnectId }) => {
+const ChatBoardPanelHeader = ({ client, onPanelClick, engagingClientId, disconnectIds }) => {
   let style;
 
   if(engagingClientId === client.id){
@@ -10,7 +10,7 @@ const ChatBoardPanelHeader = ({ client, onPanelClick, engagingClientId, disconne
     style = {backgroundColor:'white'};
   }
 
-  if (disconnectId === client.id){
+  if (disconnectIds.includes(client.id)){
     style = {backgroundColor:'grey'};
   } 
 

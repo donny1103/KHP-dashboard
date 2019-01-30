@@ -6,7 +6,7 @@ import 'antd/dist/antd.css';
 
 const Panel = Collapse.Panel;
 
-const ChatBoard = ({ isChatBoardShown, engagedClients, toggleChatBoard, onPanelClick, engagingClientId, disconnectId }) =>{
+const ChatBoard = ({ isChatBoardShown, engagedClients, toggleChatBoard, onPanelClick, engagingClientId, disconnectIds }) =>{
   return (
     <>
       <Col span={isChatBoardShown ? 3 : 15}>
@@ -33,14 +33,14 @@ const ChatBoard = ({ isChatBoardShown, engagedClients, toggleChatBoard, onPanelC
                       client={client} 
                       onPanelClick={onPanelClick}
                       engagingClientId={engagingClientId}
-                      disconnectId={disconnectId}
+                      disconnectIds={disconnectIds}
                     />
                   } 
                   key={client.id}
                   showArrow={false} 
                 >
-                  <ChatBoardPanelInfo client={client} disconnectId={disconnectId} /> 
-                  { disconnectId === client.id &&
+                  <ChatBoardPanelInfo client={client} /> 
+                  { disconnectIds.includes(client.id) &&
                     <Row type='flex' justify='end'>
                       <Button  
                       className="chat-button" 

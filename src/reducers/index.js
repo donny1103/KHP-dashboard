@@ -41,7 +41,7 @@ let socketInitialState = {
   queue: {}, 
   priority: {}, 
   id:'',
-  disconnectId:'',
+  disconnectIds:[],
   receivedMessage:{}
 };
 
@@ -66,7 +66,7 @@ const socketReducer = (state = socketInitialState, action) => {
       return {...state, queue: {...state.queue, ...action.data.queue}, priority: action.data.priority};
     
     case 'DISCONNECTED_CLIENT':
-      return {...state, disconnectId: action.id};
+      return {...state, disconnectIds: [...state.disconnectIds, action.id]};
 
     case 'INITIATE_CHAT':
       return {...state, queue: action.data};
