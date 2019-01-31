@@ -82,7 +82,7 @@ const categorizePriority = (queue) => {
 }
 
 export const initializeSocket = () => dispatch => {
-  const socket = new WebSocket( `${process.env.SERVER_PORT}`);
+  const socket = new WebSocket( `https://khp-server.herokuapp.com/`);
   dispatch(socketConnectionInit(socket));
   socket.onopen = () => {
     socket.send(JSON.stringify({type:'counsellor'}))
