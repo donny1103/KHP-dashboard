@@ -88,3 +88,12 @@ $message-background-color : #E3E4E5;
     }
   }
 }
+
+::-webkit-scrollbar {
+  width: 5px;
+  background: transparent; 
+}
+// ::-webkit-scrollbar-thumb {
+//   height: 10px;  
+//   background:white;
+// }
