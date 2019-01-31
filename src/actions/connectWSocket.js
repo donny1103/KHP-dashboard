@@ -1,5 +1,6 @@
+import dotenv from 'dotenv';
 import { sendMessage } from '../actions/';
-
+dotenv.config();
 const socketConnectionInit = socket => ({
   type: 'SOCKET_CONNECTION_INIT',
   socket
