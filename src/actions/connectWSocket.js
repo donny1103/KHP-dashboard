@@ -1,6 +1,5 @@
-import dotenv from 'dotenv';
 import { sendMessage } from '../actions/';
-dotenv.config();
+
 const socketConnectionInit = socket => ({
   type: 'SOCKET_CONNECTION_INIT',
   socket
@@ -82,7 +81,7 @@ const categorizePriority = (queue) => {
 }
 
 export const initializeSocket = () => dispatch => {
-  const socket = new WebSocket( `wss://khp-server.herokuapp.com/`);
+  const socket = new WebSocket( `${process.env.REACT_APP__PORT}`);
   dispatch(socketConnectionInit(socket));
   socket.onopen = () => {
     socket.send(JSON.stringify({type:'counsellor'}))
