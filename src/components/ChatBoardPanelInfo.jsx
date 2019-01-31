@@ -61,7 +61,7 @@ const ChatBoardPanelInfo = ({ client }) => (
     }
 
     {
-      client.careAbout && 
+      client.careAbout && client.careAbout.length && 
       <Col className="info-item" xs={0} sm={0} md={24} lg={24} xl={24}>
         <b className="item-titles">Care About</b>
       </Col>
