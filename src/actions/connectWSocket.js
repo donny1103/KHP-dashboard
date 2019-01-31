@@ -81,8 +81,8 @@ const categorizePriority = (queue) => {
 }
 
 export const initializeSocket = () => dispatch => {
-
-  const socket = new WebSocket(process.env.PORT || 'ws://localhost:3001');
+  console.log('server port',process.env.SERVER_PORT)
+  const socket = new WebSocket( `ws:// ${process.env.SERVER_PORT || 'localhost:3001'}`);
   dispatch(socketConnectionInit(socket));
   socket.onopen = () => {
     socket.send(JSON.stringify({type:'counsellor'}))
