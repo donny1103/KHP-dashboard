@@ -12,11 +12,15 @@ class Messages extends Component {
   }
 
   componentDidMount() {
-    this.scrollToBottom();
+    if(this.props.engagingClientId){
+      this.scrollToBottom()
+    };
   }
   
   componentDidUpdate() {
-    this.scrollToBottom();
+    if(this.props.engagingClientId){
+      this.scrollToBottom()
+    };
   }
 
   render(){
