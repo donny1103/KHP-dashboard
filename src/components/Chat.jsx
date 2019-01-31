@@ -22,6 +22,7 @@ const Chat = ( {engagingClientId, queue, sendMessage, socket, wsId } ) => {
         <Messages 
           messages={messages} 
           clientName={clientName}
+          engagingClientId={engagingClientId}
         />
 
         <ChatBar         

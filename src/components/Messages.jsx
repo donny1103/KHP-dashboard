@@ -20,11 +20,11 @@ class Messages extends Component {
   }
 
   render(){
-    let {clientName, messages} = this.props;
+    let {clientName, engagingClientId, messages} = this.props;
     let displayName = clientName ? clientName : 'Anonymous';
     return ( 
       <div className="messages">
-        {messages ? 
+        {engagingClientId ? 
           (
             <div>
               <p>You are now chatting with <b>{displayName}</b></p><br />
