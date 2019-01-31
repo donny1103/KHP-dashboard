@@ -81,7 +81,7 @@ const categorizePriority = (queue) => {
 }
 
 export const initializeSocket = () => dispatch => {
-  const socket = new WebSocket( `${process.env.REACT_APP__PORT}`);
+  const socket = new WebSocket( `${process.env.REACT_APP_PORT}`);
   dispatch(socketConnectionInit(socket));
   socket.onopen = () => {
     socket.send(JSON.stringify({type:'counsellor'}))
