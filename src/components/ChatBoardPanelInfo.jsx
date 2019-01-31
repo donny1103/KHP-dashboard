@@ -5,7 +5,7 @@ import uuidv4 from 'uuid/v4';
 const ChatBoardPanelInfo = ({ client }) => (
   <Row className="personal-info">
     {
-      client.age && 
+      client.severity && 
       <Col className="info-item" >
         <b className="item-titles">Severity: </b>
          {client.severity}
@@ -13,7 +13,7 @@ const ChatBoardPanelInfo = ({ client }) => (
     }
 
     {
-      client.age && 
+      client.age !== 0 && 
       <Col className="info-item" >
         <b className="item-titles">Age: </b>
         {client.age}
@@ -61,14 +61,14 @@ const ChatBoardPanelInfo = ({ client }) => (
     }
 
     {
-      client.careAbout && client.careAbout.length && 
+      client.careAbout && client.careAbout.length !== 0 && 
       <Col className="info-item" xs={0} sm={0} md={24} lg={24} xl={24}>
         <b className="item-titles">Care About</b>
       </Col>
     }
     <ul>
       {
-        client.careAbout && client.careAbout.map(person=>(
+        client.careAbout && client.careAbout.lenghth !== 0 && client.careAbout.map(person=>(
           <li key={uuidv4()}>{person}</li>
         ))
       }
