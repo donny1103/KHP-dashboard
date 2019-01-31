@@ -95,7 +95,6 @@ export const initializeSocket = () => dispatch => {
 
   socket.onmessage = json => {
     let parsedJson = JSON.parse(json.data);
-    console.log(parsedJson)
     switch(parsedJson.type){
       case 'queue':
         let queue = injectId(parsedJson.queue);
